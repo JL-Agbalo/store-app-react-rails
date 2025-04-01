@@ -2,7 +2,8 @@ export const products = [
   {
     id: 1,
     name: "Men's T-Shirt",
-    description: "A comfortable and stylish men's t-shirt.",
+    description:
+      "A comfortable and stylish men's t-shirt made from 100% premium cotton. Perfect for casual wear and available in multiple colors.",
     price: 19.99,
     stock: 100,
     category_id: 1, // Clothes
@@ -11,7 +12,8 @@ export const products = [
   {
     id: 2,
     name: "Smartphone",
-    description: "A high-end smartphone with a sleek design.",
+    description:
+      "A high-end smartphone with a sleek design, featuring a 6.5-inch OLED display, 128GB storage, and a powerful dual-camera system.",
     price: 699.99,
     stock: 50,
     category_id: 2, // Electronics
@@ -20,7 +22,8 @@ export const products = [
   {
     id: 3,
     name: "Leather Wallet",
-    description: "A premium leather wallet with multiple compartments.",
+    description:
+      "A premium handcrafted leather wallet with RFID protection and multiple compartments for cash and cards.",
     price: 49.99,
     stock: 200,
     category_id: 3, // Accessories
@@ -29,7 +32,8 @@ export const products = [
   {
     id: 4,
     name: "Sofa Set",
-    description: "A comfortable and stylish sofa set for your living room.",
+    description:
+      "A luxurious 3-seater sofa set with plush cushions and a modern aesthetic. Designed for ultimate comfort and durability.",
     price: 899.99,
     stock: 10,
     category_id: 4, // Home
@@ -38,7 +42,8 @@ export const products = [
   {
     id: 5,
     name: "Running Shoes",
-    description: "Lightweight and durable running shoes for all terrains.",
+    description:
+      "Lightweight and durable running shoes with cushioned soles, designed for high performance on all terrains.",
     price: 79.99,
     stock: 150,
     category_id: 5, // Sports
@@ -48,7 +53,7 @@ export const products = [
     id: 6,
     name: "Mystery Novel",
     description:
-      "A thrilling mystery novel that keeps you on the edge of your seat.",
+      "A thrilling mystery novel filled with unexpected twists and turns, keeping you on the edge of your seat till the last page.",
     price: 14.99,
     stock: 300,
     category_id: 6, // Books
@@ -58,7 +63,7 @@ export const products = [
     id: 7,
     name: "Antivirus Software",
     description:
-      "Protect your computer with this top-rated antivirus software.",
+      "Protect your computer with this top-rated antivirus software featuring real-time threat detection and malware removal.",
     price: 29.99,
     stock: 500,
     category_id: 7, // Software
@@ -68,7 +73,7 @@ export const products = [
     id: 8,
     name: "Coffee Maker",
     description:
-      "Premium automated coffee maker with multiple brewing options.",
+      "Premium automated coffee maker with a built-in grinder and multiple brewing options for the perfect cup of coffee every time.",
     price: 129.99,
     stock: 75,
     category_id: 4, // Home
@@ -77,7 +82,8 @@ export const products = [
   {
     id: 9,
     name: "Yoga Mat",
-    description: "Non-slip, eco-friendly yoga mat with carrying strap.",
+    description:
+      "Non-slip, eco-friendly yoga mat with a comfortable 6mm thickness and a carrying strap for easy transport.",
     price: 34.99,
     stock: 120,
     category_id: 5, // Sports
@@ -87,7 +93,7 @@ export const products = [
     id: 10,
     name: "Wireless Headphones",
     description:
-      "Noise-cancelling Bluetooth headphones with long battery life.",
+      "Noise-cancelling Bluetooth headphones with immersive sound, up to 30 hours of battery life, and a sleek ergonomic design.",
     price: 159.99,
     stock: 85,
     category_id: 2, // Electronics
@@ -96,7 +102,8 @@ export const products = [
   {
     id: 11,
     name: "Women's Dress",
-    description: "Elegant casual dress perfect for any occasion.",
+    description:
+      "Elegant and breathable casual dress made with soft, high-quality fabric. Ideal for any occasion, from casual outings to parties.",
     price: 59.99,
     stock: 80,
     category_id: 1, // Clothes
@@ -105,7 +112,8 @@ export const products = [
   {
     id: 12,
     name: "Digital Camera",
-    description: "High-resolution digital camera with advanced features.",
+    description:
+      "High-resolution digital camera with 4K video recording, 20MP sensor, and a powerful optical zoom lens.",
     price: 449.99,
     stock: 30,
     category_id: 2, // Electronics
@@ -114,7 +122,8 @@ export const products = [
   {
     id: 13,
     name: "Backpack",
-    description: "Durable waterproof backpack with laptop compartment.",
+    description:
+      "Durable waterproof backpack with a padded laptop compartment, multiple pockets, and an ergonomic design for comfortable carrying.",
     price: 45.99,
     stock: 100,
     category_id: 3, // Accessories
@@ -123,7 +132,8 @@ export const products = [
   {
     id: 14,
     name: "Table Lamp",
-    description: "Modern LED table lamp with adjustable brightness.",
+    description:
+      "Modern LED table lamp with touch control, adjustable brightness, and a sleek minimalist design for any workspace.",
     price: 39.99,
     stock: 60,
     category_id: 4, // Home
@@ -132,7 +142,8 @@ export const products = [
   {
     id: 15,
     name: "Cooking Book",
-    description: "Comprehensive cookbook with international recipes.",
+    description:
+      "A comprehensive cookbook featuring hundreds of international recipes, detailed instructions, and beautiful photography.",
     price: 24.99,
     stock: 150,
     category_id: 6, // Books
@@ -141,7 +152,8 @@ export const products = [
   {
     id: 16,
     name: "Smart Watch",
-    description: "Feature-rich smartwatch with health monitoring.",
+    description:
+      "Feature-rich smartwatch with fitness tracking, heart rate monitoring, and customizable watch faces.",
     price: 199.99,
     stock: 45,
     category_id: 2, // Electronics
@@ -150,7 +162,8 @@ export const products = [
   {
     id: 17,
     name: "Gaming Mouse",
-    description: "High-precision gaming mouse with programmable buttons.",
+    description:
+      "High-precision gaming mouse with customizable RGB lighting, programmable buttons, and ultra-fast response time.",
     price: 69.99,
     stock: 90,
     category_id: 7, // Software

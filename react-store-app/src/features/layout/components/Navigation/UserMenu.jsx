@@ -4,6 +4,7 @@ import Avatar from "../../../../shared/components/Avatar";
 import { userNavLinks } from "../../config/navigation";
 
 function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
+  console.log("user", user);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
     <div className="relative">

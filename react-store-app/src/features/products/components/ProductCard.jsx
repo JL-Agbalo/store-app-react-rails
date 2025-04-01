@@ -16,7 +16,7 @@ function ProductCard({ product }) {
         {product.name}
       </h3>
       <p className="text-sm text-gray-600">{product.category_name}</p>
-      <p className="mt-1 text-lg font-semibold text-gray-900">
+      <p className="mt-1 text-sm sm:text-base md:text-lg font-semibold text-gray-900">
         ${product.price}
       </p>
     </Link>

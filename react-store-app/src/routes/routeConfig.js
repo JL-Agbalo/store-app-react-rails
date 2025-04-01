@@ -6,6 +6,7 @@ const Home = lazy(() => import("../pages/Home"));
 const SignIn = lazy(() => import("../pages/Auth/SignIn"));
 const SignUp = lazy(() => import("../pages/Auth/SignUp"));
 const Products = lazy(() => import("../pages/Products"));
+const Product = lazy(() => import("../pages/Product"));
 
 // Public routes (no auth required)
 export const publicRoutes = [
@@ -33,7 +34,7 @@ export const commonRoutes = [
     element: React.createElement(Products),
   },
   {
-    path: "/products/:id",
-    element: React.createElement(Products),
+    path: "/product/:id",
+    element: React.createElement(Product),
   },
 ];
