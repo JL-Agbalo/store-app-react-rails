@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-
-const MainLayout = () => {
+import Navbar from "../Navigation/Navbar";
+const MainLayout = ({ isAuthenticated }) => {
   return (
     <div className="min-h-screen">
-      <header>{/* Add your header/navigation here */}</header>
+      <Navbar isAuthenticated={isAuthenticated} />
       <main>
         <Outlet />
       </main>

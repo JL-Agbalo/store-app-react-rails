@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrivateRoutes, PublicRoutes } from "./routes";
@@ -10,12 +11,14 @@ import MainLayout from "./features/layout/components/Layout/MainLayout";
 import AuthLayout from "./features/layout/components/Layout/AuthLayout";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {/* Common Pages - Available to all */}
-          <Route element={<MainLayout />}>
+          <Route element={<MainLayout isAuthenticated={isAuthenticated} />}>
             {commonRoutes.map((route) => (
               <Route
                 key={route.path}

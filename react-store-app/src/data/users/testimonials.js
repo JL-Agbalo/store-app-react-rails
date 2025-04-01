@@ -1,0 +1,58 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: "John Doe",
+    feedback: "Great products and amazing customer service!",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    feedback: "I love shopping here. The quality is top-notch.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+  },
+  {
+    id: 3,
+    name: "Daniel Wilson",
+    feedback: "Highly recommend this store for quality products.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/men/9.jpg",
+  },
+  {
+    id: 4,
+    name: "Sarah Williams",
+    feedback: "Excellent customer support and fast delivery.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
+  },
+  {
+    id: 5,
+    name: "David Brown",
+    feedback: "The products are of great quality and affordable.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
+  },
+  {
+    id: 6,
+    name: "Emily Clark",
+    feedback: "I am very satisfied with my purchase. Will shop again!",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+  },
+  {
+    id: 7,
+    name: "Chris Evans",
+    feedback: "Amazing variety and excellent quality.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/men/7.jpg",
+  },
+  {
+    id: 8,
+    name: "Olivia Martinez",
+    feedback: "Great shopping experience and fast delivery.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/8.jpg",
+  },
+];
