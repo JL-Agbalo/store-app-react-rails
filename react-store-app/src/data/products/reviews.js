@@ -1,4 +1,4 @@
-export const productReviews = [
+export const reviews = [
   {
     id: 1,
     product_id: 1,

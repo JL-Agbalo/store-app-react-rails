@@ -1,29 +1,7 @@
 import { products } from "../data/products/products.js";
 import { productImages } from "../data/products/productImages.js";
 import { categoryService } from "./categoryService";
-import { productReviews } from "../data/products/productReviews";
-import { getUserDetails } from "./userService";
-
-export const getProducts = () => {
-  return products.map((product) => {
-    const images = productImages.filter((img) => img.product_id === product.id);
-    return {
-      ...product,
-      images: images,
-      primaryImage: images.find((img) => img.is_primary)?.image_url,
-    };
-  });
-};
-
-export const getProductsByCategoryId = (categoryId) => {
-  const allProducts = getProducts();
-  if (categoryId === 1 || categoryId === "1") {
-    return allProducts;
-  }
-  return allProducts.filter(
-    (product) => product.category_id === parseInt(categoryId)
-  );
-};
+import { getProductReviewStats, getReviewsWithUser } from "./reviewService";
 
 const getProductImages = (productId) => {
   const images = productImages.filter((img) => img.product_id === productId);
@@ -33,37 +11,51 @@ const getProductImages = (productId) => {
   };
 };
 
-const getProductReviews = (productId) => {
-  return productReviews
-    .filter((review) => review.product_id === productId)
-    .map((review) => ({
-      ...review,
-      user: getUserDetails(review.user_id),
-    }));
+const getPrimaryImage = (productId) => {
+  return productImages.find(
+    (img) => img.product_id === productId && img.is_primary
+  )?.image_url;
 };
 
-const calculateAverageRating = (reviews) => {
-  return reviews.length
-    ? (
-        reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
-      ).toFixed(1)
-    : 0;
+export const getProducts = () => {
+  return products;
+};
+
+export const getProductsWithImages = () => {
+  return products.map((product) => ({
+    ...product,
+    ...getProductImages(product.id),
+  }));
+};
+
+// For Products List Page
+export const getProductsByCategoryId = (categoryId) => {
+  const allProducts = getProducts();
+  const filteredProducts =
+    categoryId === 1 || categoryId === "1"
+      ? allProducts
+      : allProducts.filter(
+          (product) => product.category_id === parseInt(categoryId)
+        );
+
+  return filteredProducts.map((product) => ({
+    ...product,
+    primaryImage: getPrimaryImage(product.id),
+    ...getProductReviewStats(product.id),
+  }));
 };
 
 export const getProductById = (productId) => {
   const product = products.find((p) => p.id === parseInt(productId));
   if (!product) return null;
 
-  const { images, primaryImage } = getProductImages(product.id);
   const category = categoryService.getCategoryById(product.category_id);
-  const reviews = getProductReviews(product.id);
 
   return {
     ...product,
-    images,
-    primaryImage,
+    ...getProductImages(product.id),
     categoryName: category?.name || "Uncategorized",
-    reviews,
-    averageRating: calculateAverageRating(reviews),
+    reviews: getReviewsWithUser(product.id),
+    ...getProductReviewStats(product.id),
   };
 };

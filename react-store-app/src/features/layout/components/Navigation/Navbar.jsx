@@ -5,11 +5,11 @@ import UserMenu from "./UserMenu";
 import MobileMenu from "./MobileMenu";
 import { mainNavLinks } from "../../config/navigation";
 import { PUBLIC_ROUTES, AUTH_ROUTES } from "../../constants/routes";
-import { getUserDetails } from "../../../../services/userService";
+import { getUserInfoWithAvatar } from "../../../../services/userService";
 function Navbar({ isAuthenticated = false, setIsAuthenticated }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [user] = useState(getUserDetails(1));
+  const [user] = useState(getUserInfoWithAvatar(1));
   return (
     <>
       <nav className="bg-white text-black py-3 sticky top-0 shadow-md z-50">

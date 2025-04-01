@@ -1,19 +1,7 @@
 import React from "react";
+import StarRating from "../../../shared/components/StarRating";
 
 function ReviewSection({ reviews }) {
-  const renderStars = (rating) => {
-    return [...Array(5)].map((_, index) => (
-      <span
-        key={index}
-        className={`text-lg ${
-          index < rating ? "text-yellow-400" : "text-gray-200"
-        }`}
-      >
-        ★
-      </span>
-    ));
-  };
-
   return (
     <div className="mt-20 border-t border-gray-100 pt-10">
       {reviews?.length > 0 ? (
@@ -22,9 +10,17 @@ function ReviewSection({ reviews }) {
             <div key={review.id} className="border-b border-gray-100 pb-8">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-base font-medium text-gray-600">
-                    {review.user.firstName[0]}
-                  </span>
+                  {review.user.avatar_url ? (
+                    <img
+                      src={review.user.avatar_url}
+                      alt={`${review.user.firstName}'s avatar`}
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-base font-medium text-gray-600">
+                      {review.user.firstName[0]}
+                    </span>
+                  )}
                 </div>
                 <div className="flex-grow">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -36,7 +32,7 @@ function ReviewSection({ reviews }) {
                     </span>
                   </div>
                   <div className="flex items-center mt-1 mb-3">
-                    {renderStars(review.rating)}
+                    <StarRating rating={review.rating} className="w-5 h-5" />
                   </div>
                   <p className="text-gray-600">{review.comment}</p>
                 </div>

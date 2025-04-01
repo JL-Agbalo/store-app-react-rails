@@ -4,7 +4,6 @@ import Avatar from "../../../../shared/components/Avatar";
 import { userNavLinks } from "../../config/navigation";
 
 function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
-  console.log("user", user);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
     <div className="relative">
@@ -13,7 +12,7 @@ function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
       >
         <Avatar
-          src={user?.profile?.avatar_url}
+          src={user?.avatar_url}
           alt="User Avatar"
           hasNotification={true}
           className="w-8 h-8 rounded-full object-cover"

@@ -13,7 +13,6 @@ function Product() {
       setLoading(true);
       try {
         const data = await getProductById(id);
-        console.log("Fetched product:", data);
         setProduct(data);
       } catch (error) {
         console.error("Error fetching product:", error);

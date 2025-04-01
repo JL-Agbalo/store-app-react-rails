@@ -5,6 +5,7 @@ import {
   Plus,
   ShoppingBag,
 } from "../../../shared/components/Icons/ProductIcons";
+import StarRating from "../../../shared/components/StarRating";
 import ReviewSection from "./ReviewSection";
 
 function ProductView({ product, loading }) {
@@ -28,18 +29,7 @@ function ProductView({ product, loading }) {
 
   const toggleWishlist = () => setIsWishlisted(!isWishlisted);
 
-  const renderStars = (rating) => {
-    return [...Array(5)].map((_, index) => (
-      <span
-        key={index}
-        className={`text-lg ${
-          index < rating ? "text-yellow-400" : "text-gray-200"
-        }`}
-      >
-        ★
-      </span>
-    ));
-  };
+  console.log("product", product);
 
   if (loading) {
     return (
@@ -112,21 +102,10 @@ function ProductView({ product, loading }) {
               <h1 className="text-3xl font-medium text-gray-900">
                 {product.name}
               </h1>
-              <button
-                onClick={toggleWishlist}
-                className="text-gray-400 hover:text-red-500 transition-colors"
-                aria-label="Add to wishlist"
-              >
-                <Heart
-                  className={`w-6 h-6 ${
-                    isWishlisted ? "text-red-500 fill-red-500" : ""
-                  }`}
-                />
-              </button>
             </div>
 
             <div className="flex items-center gap-2 mt-3">
-              {renderStars(product.averageRating)}
+              <StarRating rating={product.averageRating} className="w-5 h-5" />
               <span className="text-sm text-gray-500">
                 {product.averageRating} ({product.reviews?.length || 0} reviews)
               </span>

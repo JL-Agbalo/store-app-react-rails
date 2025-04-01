@@ -34,7 +34,7 @@ function MobileMenu({
               firstName={user?.firstName}
               lastName={user?.lastName}
               email={user?.email}
-              image={user?.profile?.avatar_url}
+              image={user?.avatar_url}
             />
           )}
 
