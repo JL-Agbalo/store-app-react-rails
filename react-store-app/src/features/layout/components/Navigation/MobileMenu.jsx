@@ -16,7 +16,6 @@ function MobileMenu({
   setIsCartOpen,
   user,
 }) {
-  console.log("user", user);
   if (!isOpen) return null;
 
   return (

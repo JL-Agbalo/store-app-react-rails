@@ -1,4 +1,5 @@
-import { users, profiles } from "./mockData";
+import { users } from "../data/users/users";
+import { profiles } from "../data/users/profile";
 
 export const getUserById = (userId) => {
   const id = typeof userId === "string" ? parseInt(userId, 10) : userId;
