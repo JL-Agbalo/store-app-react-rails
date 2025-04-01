@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PrivateRoutes, PublicRoutes } from "./routes";
+import {
+  privateRoutes,
+  publicRoutes,
+  commonRoutes,
+} from "./routes/routeConfig";
+import MainLayout from "./features/layout/components/Layout/MainLayout";
+import AuthLayout from "./features/layout/components/Layout/AuthLayout";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {/* Common Pages - Available to all */}
+          <Route element={<MainLayout />}>
+            {commonRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.element}
+              />
+            ))}
+          </Route>
+
+          {/* Auth Pages */}
+          <Route element={<PublicRoutes />}>
+            <Route element={<AuthLayout />}>
+              {publicRoutes.map((route) => (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={route.element}
+                />
+              ))}
+            </Route>
+          </Route>
+
+          {/* Protected Pages */}
+          <Route element={<PrivateRoutes />}>
+            <Route element={<MainLayout />}>
+              {privateRoutes.map((route) => (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={route.element}
+                />
+              ))}
+            </Route>
+          </Route>
+
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
