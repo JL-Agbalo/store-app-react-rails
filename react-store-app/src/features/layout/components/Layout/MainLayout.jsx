@@ -1,14 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navigation/Navbar";
+import Footer from "../Footer/Footer";
+
 const MainLayout = ({ isAuthenticated }) => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar isAuthenticated={isAuthenticated} />
-      <main>
+      <main className="flex-grow">
         <Outlet />
       </main>
-      <footer>{/* Add your footer here */}</footer>
+      <Footer />
     </div>
   );
 };

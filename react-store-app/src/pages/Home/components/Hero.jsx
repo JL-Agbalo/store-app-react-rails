@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import headerItemBanner from "../../../assets/images/banners/headerItemBanner.png";
-import { CommonIcons as Icons } from "../../../shared/components/icons/CommonIcons";
+import { RightArrow } from "../../../shared/components/icons/CommonIcons";
 
 function Hero() {
   return (
@@ -28,7 +28,7 @@ function Hero() {
             className="group inline-flex items-center px-8 py-3 text-sm tracking-wide border rounded-lg border-black text-black hover:bg-black hover:text-white transition-all duration-300"
           >
             <span>Explore Collection</span>
-            <Icons.RightArrow className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            <RightArrow className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
         <div className="lg:w-1/2 mt-12 lg:mt-0">

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  Heart,
   Minus,
   Plus,
   ShoppingBag,
@@ -11,7 +10,6 @@ import ReviewSection from "./ReviewSection";
 function ProductView({ product, loading }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [isWishlisted, setIsWishlisted] = useState(false);
 
   useEffect(() => {
     if (product) {
@@ -26,10 +24,6 @@ function ProductView({ product, loading }) {
   const decreaseQuantity = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
-
-  const toggleWishlist = () => setIsWishlisted(!isWishlisted);
-
-  console.log("product", product);
 
   if (loading) {
     return (

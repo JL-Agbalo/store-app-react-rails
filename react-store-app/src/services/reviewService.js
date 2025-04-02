@@ -25,3 +25,7 @@ export const getProductReviewStats = (productId) => {
       : 0,
   };
 };
+
+export const getReviewCount = (productId) => {
+  return getReviewsByProductId(productId).length;
+};
