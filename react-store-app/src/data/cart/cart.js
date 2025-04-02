@@ -1,162 +1,63 @@
-export const cart = [
+export const carts = [
   {
     id: 1,
-    userId: 1,
+    userId: 1, // Fish Johnson
     items: [
       {
-        productId: 1,
-        quantity: 2,
+        product_id: 2, // Smartphone
+        quantity: 1,
+        price: 699.99,
       },
       {
-        productId: 3,
+        product_id: 5, // Running Shoes
+        quantity: 2,
+        price: 79.99,
+      },
+      {
+        product_id: 13, // Backpack
         quantity: 1,
+        price: 45.99,
+      },
+      {
+        product_id: 15, // Cooking Book
+        quantity: 1,
+        price: 24.99,
+      },
+      {
+        product_id: 10, // Wireless Headphones
+        quantity: 1,
+        price: 159.99,
       },
     ],
-    creationAt: "2025-03-12T10:00:00.000Z",
-    updatedAt: "2025-03-12T10:00:00.000Z",
+    created_at: new Date().toISOString(),
+    total: 1090.94,
   },
   {
     id: 2,
-    userId: 2,
+    userId: 5, // Emma Wilson
     items: [
       {
-        productId: 2,
-        quantity: 1,
+        product_id: 11, // Women's Dress
+        quantity: 2,
+        price: 59.99,
       },
       {
-        productId: 5,
+        product_id: 16, // Smart Watch
+        quantity: 1,
+        price: 199.99,
+      },
+      {
+        product_id: 14, // Table Lamp
         quantity: 3,
+        price: 39.99,
+      },
+      {
+        product_id: 9, // Yoga Mat
+        quantity: 1,
+        price: 34.99,
       },
     ],
-    creationAt: "2025-03-12T11:00:00.000Z",
-    updatedAt: "2025-03-12T11:00:00.000Z",
-  },
-  {
-    id: 3,
-    userId: 3,
-    items: [
-      {
-        productId: 4,
-        quantity: 1,
-      },
-      {
-        productId: 6,
-        quantity: 2,
-      },
-    ],
-    creationAt: "2025-03-12T12:00:00.000Z",
-    updatedAt: "2025-03-12T12:00:00.000Z",
-  },
-  {
-    id: 4,
-    userId: 4,
-    items: [
-      {
-        productId: 7,
-        quantity: 1,
-      },
-      {
-        productId: 8,
-        quantity: 1,
-      },
-    ],
-    creationAt: "2025-03-12T13:00:00.000Z",
-    updatedAt: "2025-03-12T13:00:00.000Z",
-  },
-  {
-    id: 5,
-    userId: 5,
-    items: [
-      {
-        productId: 9,
-        quantity: 3,
-      },
-      {
-        productId: 10,
-        quantity: 1,
-      },
-    ],
-    creationAt: "2025-03-12T14:00:00.000Z",
-    updatedAt: "2025-03-12T14:00:00.000Z",
-  },
-  {
-    id: 6,
-    userId: 6,
-    items: [
-      {
-        productId: 11,
-        quantity: 2,
-      },
-      {
-        productId: 12,
-        quantity: 1,
-      },
-    ],
-    creationAt: "2025-03-12T15:00:00.000Z",
-    updatedAt: "2025-03-12T15:00:00.000Z",
-  },
-  {
-    id: 7,
-    userId: 7,
-    items: [
-      {
-        productId: 13,
-        quantity: 1,
-      },
-      {
-        productId: 14,
-        quantity: 2,
-      },
-    ],
-    creationAt: "2025-03-12T16:00:00.000Z",
-    updatedAt: "2025-03-12T16:00:00.000Z",
-  },
-  {
-    id: 8,
-    userId: 8,
-    items: [
-      {
-        productId: 15,
-        quantity: 1,
-      },
-      {
-        productId: 16,
-        quantity: 1,
-      },
-    ],
-    creationAt: "2025-03-12T17:00:00.000Z",
-    updatedAt: "2025-03-12T17:00:00.000Z",
-  },
-  {
-    id: 9,
-    userId: 9,
-    items: [
-      {
-        productId: 17,
-        quantity: 2,
-      },
-      {
-        productId: 18,
-        quantity: 1,
-      },
-    ],
-    creationAt: "2025-03-12T18:00:00.000Z",
-    updatedAt: "2025-03-12T18:00:00.000Z",
-  },
-  {
-    id: 10,
-    userId: 10,
-    items: [
-      {
-        productId: 19,
-        quantity: 1,
-      },
-      {
-        productId: 20,
-        quantity: 3,
-      },
-    ],
-    creationAt: "2025-03-12T19:00:00.000Z",
-    updatedAt: "2025-03-12T19:00:00.000Z",
+    created_at: new Date().toISOString(),
+    total: 474.93,
   },
 ];

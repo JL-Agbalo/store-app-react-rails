@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Bag } from "../../../../shared/components/icons/NavigationIcons";
 import UserMenu from "./UserMenu";
 import MobileMenu from "./MobileMenu";
+import Cart from "../../../cart/components/Cart";
 import { mainNavLinks } from "../../config/navigation";
 import { PUBLIC_ROUTES, AUTH_ROUTES } from "../../constants/routes";
 import { getUserInfoWithAvatar } from "../../../../services/userService";
-function Navbar({ isAuthenticated = false, setIsAuthenticated }) {
+
+function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [user] = useState(getUserInfoWithAvatar(1));
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      const userInfo = getUserInfoWithAvatar(userId);
+      setUser(userInfo);
+    }
+  }, [isAuthenticated, userId]);
+
   return (
     <>
       <nav className="bg-white text-black py-3 sticky top-0 shadow-md z-50">
@@ -43,12 +53,12 @@ function Navbar({ isAuthenticated = false, setIsAuthenticated }) {
           <div className="hidden md:flex items-center space-x-6">
             {isAuthenticated ? (
               <div className="flex items-center gap-4">
-                <Link
-                  to={PUBLIC_ROUTES.CART}
+                <button
+                  onClick={() => setIsCartOpen(true)}
                   className="flex items-center hover:opacity-80"
                 >
                   <Bag className="w-6 h-6" />
-                </Link>
+                </button>
                 <div className="flex items-center">
                   <UserMenu
                     user={user}
@@ -84,6 +94,12 @@ function Navbar({ isAuthenticated = false, setIsAuthenticated }) {
         setIsAuthenticated={setIsAuthenticated}
         setIsCartOpen={setIsCartOpen}
         user={user}
+      />
+      <Cart
+        userId={user?.id}
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        setIsCartOpen={setIsCartOpen}
       />
     </>
   );

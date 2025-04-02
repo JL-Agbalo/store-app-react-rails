@@ -52,7 +52,7 @@ export const users = [
 export const profiles = [
   {
     id: 1,
-    user_id: 1,
+    userId: 1,
     phone: "+1 234 567 890",
     avatar_url: "https://randomuser.me/api/portraits/men/1.jpg",
     date_of_birth: "1990-05-15",
@@ -66,7 +66,7 @@ export const profiles = [
   },
   {
     id: 2,
-    user_id: 2,
+    userId: 2,
     phone: "+1 987 654 321",
     avatar_url: "https://randomuser.me/api/portraits/women/2.jpg",
     date_of_birth: "1985-10-20",
@@ -80,7 +80,7 @@ export const profiles = [
   },
   {
     id: 3,
-    user_id: 3,
+    userId: 3,
     phone: "+44 20 7123 4567",
     avatar_url: "https://randomuser.me/api/portraits/men/3.jpg",
     date_of_birth: "1992-12-03",
@@ -94,7 +94,7 @@ export const profiles = [
   },
   {
     id: 4,
-    user_id: 4,
+    userId: 4,
     phone: "+61 2 9876 5432",
     avatar_url: "https://randomuser.me/api/portraits/women/4.jpg",
     date_of_birth: "1988-07-18",
@@ -108,7 +108,7 @@ export const profiles = [
   },
   {
     id: 5,
-    user_id: 5,
+    userId: 5,
     phone: "+33 1 23 45 67 89",
     avatar_url: "https://randomuser.me/api/portraits/women/5.jpg",
     date_of_birth: "1995-03-30",

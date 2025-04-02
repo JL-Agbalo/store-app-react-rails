@@ -2,7 +2,7 @@ export const reviews = [
   {
     id: 1,
     product_id: 1,
-    user_id: 1,
+    userId: 1,
     rating: 4,
     comment: "Great t-shirt! Very comfortable and fits well.",
     created_at: "2025-03-24T14:30:00Z",
@@ -10,7 +10,7 @@ export const reviews = [
   {
     id: 2,
     product_id: 2,
-    user_id: 2,
+    userId: 2,
     rating: 5,
     comment: "This smartphone exceeds all my expectations. Amazing camera!",
     created_at: "2025-03-24T15:00:00Z",
@@ -18,7 +18,7 @@ export const reviews = [
   {
     id: 3,
     product_id: 3,
-    user_id: 3,
+    userId: 3,
     rating: 4,
     comment: "Good quality leather wallet, lots of space for cards.",
     created_at: "2025-03-24T15:30:00Z",
@@ -26,7 +26,7 @@ export const reviews = [
   {
     id: 4,
     product_id: 4,
-    user_id: 4,
+    userId: 4,
     rating: 5,
     comment: "The sofa set is beautiful and very comfortable.",
     created_at: "2025-03-24T16:00:00Z",
@@ -34,7 +34,7 @@ export const reviews = [
   {
     id: 5,
     product_id: 10,
-    user_id: 5,
+    userId: 5,
     rating: 5,
     comment: "These headphones have amazing sound quality!",
     created_at: "2025-03-24T16:30:00Z",
@@ -42,7 +42,7 @@ export const reviews = [
   {
     id: 6,
     product_id: 16,
-    user_id: 6,
+    userId: 6,
     rating: 3,
     comment: "Smart watch is okay, battery life could be better.",
     created_at: "2025-03-24T17:00:00Z",
@@ -50,7 +50,7 @@ export const reviews = [
   {
     id: 7,
     product_id: 11,
-    user_id: 1,
+    userId: 1,
     rating: 5,
     comment: "Perfect dress for summer! Great material.",
     created_at: "2025-03-24T17:30:00Z",
@@ -58,7 +58,7 @@ export const reviews = [
   {
     id: 8,
     product_id: 8,
-    user_id: 2,
+    userId: 2,
     rating: 4,
     comment: "Makes great coffee, but slightly noisy.",
     created_at: "2025-03-24T18:00:00Z",
@@ -66,7 +66,7 @@ export const reviews = [
   {
     id: 9,
     product_id: 15,
-    user_id: 3,
+    userId: 3,
     rating: 5,
     comment: "Best cookbook I've ever owned! Recipes are easy to follow.",
     created_at: "2025-03-24T18:30:00Z",
@@ -74,7 +74,7 @@ export const reviews = [
   {
     id: 10,
     product_id: 17,
-    user_id: 4,
+    userId: 4,
     rating: 4,
     comment: "Great gaming mouse, very responsive.",
     created_at: "2025-03-24T19:00:00Z",

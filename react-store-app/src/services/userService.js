@@ -3,7 +3,7 @@ import { profiles } from "../data/users/profiles";
 
 // Get user profile by ID
 export const getUserProfileById = (userId) => {
-  return profiles.find((profile) => profile.user_id === userId) || null;
+  return profiles.find((profile) => profile.userId === userId) || null;
 };
 
 // Get user avatar by ID
@@ -18,6 +18,7 @@ export const getUserBasicInfo = (userId) => {
   if (!user) return null;
 
   return {
+    id: userId,
     firstName: user.firstName,
     lastName: user.lastName,
     email: user.email,

@@ -9,7 +9,7 @@ export const getReviewsWithUser = (productId) => {
   const productReviews = getReviewsByProductId(productId);
   return productReviews.map((review) => ({
     ...review,
-    user: getUserInfoWithAvatar(review.user_id),
+    user: getUserInfoWithAvatar(review.userId),
   }));
 };
 

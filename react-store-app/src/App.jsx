@@ -12,13 +12,21 @@ import AuthLayout from "./features/layout/components/Layout/AuthLayout";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-
+  const [user] = useState({ id: 1 });
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {/* Common Pages - Available to all */}
-          <Route element={<MainLayout isAuthenticated={isAuthenticated} />}>
+          <Route
+            element={
+              <MainLayout
+                isAuthenticated={isAuthenticated}
+                userId={user.id}
+                setIsAuthenticated={setIsAuthenticated}
+              />
+            }
+          >
             {commonRoutes.map((route) => (
               <Route
                 key={route.path}
@@ -43,7 +51,15 @@ function App() {
 
           {/* Protected Pages */}
           <Route element={<PrivateRoutes />}>
-            <Route element={<MainLayout />}>
+            <Route
+              element={
+                <MainLayout
+                  isAuthenticated={isAuthenticated}
+                  userId={user.id}
+                  setIsAuthenticated={setIsAuthenticated}
+                />
+              }
+            >
               {privateRoutes.map((route) => (
                 <Route
                   key={route.path}

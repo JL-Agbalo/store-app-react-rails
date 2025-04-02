@@ -15,7 +15,7 @@ const getProductImages = (productId) => {
   };
 };
 
-const getPrimaryImage = (productId) => {
+export const getPrimaryImage = (productId) => {
   return productImages.find(
     (img) => img.product_id === productId && img.is_primary
   )?.image_url;
@@ -64,7 +64,7 @@ export const getProductById = (productId) => {
   };
 };
 
-export const getProductsSortedByReviews = (limit = 8) => {
+export const getProductsSortedByReviews = (limit = 10) => {
   const productsWithReviews = products.map((product) => ({
     ...product,
     primaryImage: getPrimaryImage(product.id),
