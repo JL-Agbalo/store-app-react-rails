@@ -7,6 +7,7 @@ const SignIn = lazy(() => import("../pages/Auth/SignIn"));
 const SignUp = lazy(() => import("../pages/Auth/SignUp"));
 const Products = lazy(() => import("../pages/Products"));
 const Product = lazy(() => import("../pages/Product"));
+const Checkout = lazy(() => import("../pages/Checkout"));
 
 // Public routes (no auth required)
 export const publicRoutes = [
@@ -21,7 +22,12 @@ export const publicRoutes = [
 ];
 
 // Private routes (auth required)
-export const privateRoutes = [];
+export const privateRoutes = [
+  {
+    path: "/checkout",
+    element: React.createElement(Checkout),
+  },
+];
 
 // Common routes (accessible to all)
 export const commonRoutes = [
