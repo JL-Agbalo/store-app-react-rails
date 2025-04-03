@@ -1,4 +1,4 @@
-import { categories } from "../data/products/categories";
+import { categories } from "../data/categoriesData";
 
 export const categoryService = {
   getAllCategories: () => categories,

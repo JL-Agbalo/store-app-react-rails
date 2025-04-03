@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getTestimonials } from "../../../services/testimonialsService";
+import { getTestimonials } from "../../../shared/services/testimonialsService";
 function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -1,5 +1,5 @@
-import { reviews } from "../data/products/reviews";
-import { getUserInfoWithAvatar } from "./userService";
+import { reviews } from "../data/reviewsData";
+import { getUserInfoWithAvatar } from "../../auth/services/userService";
 
 const getReviewsByProductId = (productId) => {
   return reviews.filter((review) => review.product_id === parseInt(productId));

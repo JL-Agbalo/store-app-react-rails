@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Modal from "../../../shared/components/Modal";
 import { useNavigate } from "react-router-dom";
-import { getCartByUserId } from "../../../services/cartService";
+import { getCartByUserId } from "../../cart/services/cartService";
+import CartTotal from "./CartTotal";
 import CartList from "./CartList";
 
 function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
@@ -17,18 +18,16 @@ function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const data = await getCartByUserId(userId);
-        console.log("Fetched cart data:", data);
-        setCartData(data);
+        const cart = await getCartByUserId(userId);
+        setCartData(cart);
       } catch (error) {
-        console.error("Error fetching cart:", error);
+        console.error("Error fetching cart data:", error);
       }
     };
-
-    if (userId) {
+    if (userId && isOpen && !cartData) {
       fetchCart();
     }
-  }, [userId]);
+  }, [userId, isOpen, cartData]);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Shopping Cart">
@@ -43,7 +42,7 @@ function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
         {/* Right Column - Total & Actions */}
         <div className="w-full md:w-[380px] flex-shrink-0 mt-6 md:mt-5">
           <div className="sticky top-0">
-            <CartTotal />
+            <CartTotal cartData={cartData} shipping={10} discount={20} />
             <div className="mt-4 space-y-3 px-2 md:px-0">
               <button
                 onClick={handleCheckout}

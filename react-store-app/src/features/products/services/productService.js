@@ -1,6 +1,6 @@
-import { products } from "../data/products/products.js";
-import { productImages } from "../data/products/productImages.js";
-import { categoryService } from "./categoryService";
+import { products } from "../data/productsData.js";
+import { productImages } from "../data/productImagesData.js";
+import { categoryService } from "./categoryService.js";
 import {
   getProductReviewStats,
   getReviewsWithUser,

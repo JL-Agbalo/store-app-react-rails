@@ -50,7 +50,7 @@ function App() {
           </Route>
 
           {/* Protected Pages */}
-          <Route element={<PrivateRoutes />}>
+          <Route element={<PrivateRoutes isAuthenticated={isAuthenticated} />}>
             <Route
               element={
                 <MainLayout

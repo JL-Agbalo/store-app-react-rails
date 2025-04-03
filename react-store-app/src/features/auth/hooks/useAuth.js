@@ -18,5 +18,6 @@ export const useAuth = () => {
     setIsLoading,
     setError,
     logout,
+    isAuthenticated: true,
   };
 };

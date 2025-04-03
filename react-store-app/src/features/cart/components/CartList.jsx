@@ -4,7 +4,6 @@ import CartItem from "./CartItem";
 
 function CartList({ cartData }) {
   const items = cartData?.items || [];
-  console.log("CartList", items);
   if (items.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16">

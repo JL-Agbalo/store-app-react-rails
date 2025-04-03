@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductView from "../../features/products/components/ProductView";
-import { getProductById } from "../../services/productService";
+import { getProductById } from "../../features/products/services/productService";
 import RelatedProducts from "../../features/products/components/RelatedProducts";
 
 function Product() {

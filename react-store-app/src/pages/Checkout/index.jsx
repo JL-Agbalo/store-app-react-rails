@@ -1,7 +1,7 @@
 import React from "react";
 
 function Checkout() {
-  return <div></div>;
+  return <div>hehehe</div>;
 }
 
 export default Checkout;

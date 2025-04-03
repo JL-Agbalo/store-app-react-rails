@@ -6,7 +6,7 @@ import MobileMenu from "./MobileMenu";
 import Cart from "../../../cart/components/Cart";
 import { mainNavLinks } from "../../config/navigation";
 import { PUBLIC_ROUTES, AUTH_ROUTES } from "../../constants/routes";
-import { getUserInfoWithAvatar } from "../../../../services/userService";
+import { getUserInfoWithAvatar } from "../../../auth/services/userService";
 
 function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

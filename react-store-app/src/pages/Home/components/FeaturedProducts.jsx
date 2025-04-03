@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getProductsSortedByReviews } from "../../../services/productService";
+import { getProductsSortedByReviews } from "../../../features/products/services/productService";
 import ProductGrid from "../../../features/products/components/ProductGrid";
 
 function FeaturedProducts() {
