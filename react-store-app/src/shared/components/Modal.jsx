@@ -13,7 +13,7 @@ function Modal({ isOpen, onClose, title, children }) {
       <div className="relative w-full h-full md:h-auto md:max-w-4xl bg-white shadow-xl md:rounded-2xl transform transition-all duration-300">
         <div className="flex flex-col h-full md:max-h-[85vh]">
           {/* Header */}
-          <div className="flex items-center justify-between p-5 border-b border-gray-200">
+          <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200">
             <div className="flex items-center space-x-2">
               <h2 className="text-lg font-semibold">{title}</h2>
             </div>

@@ -4,7 +4,7 @@ function CartTotal({
   taxRate = 0.1,
   discount = 0,
 }) {
-  const subtotal = cartData.items.reduce((sum, item) => sum + item.total, 0);
+  const subtotal = cartData?.items?.reduce((sum, item) => sum + item.total, 0);
   const tax = subtotal * taxRate;
   const total = subtotal + shipping + tax - discount;
 
@@ -14,9 +14,9 @@ function CartTotal({
       <div className="space-y-3">
         <div className="flex justify-between text-sm">
           <span className="text-gray-500">
-            Subtotal ({cartData.items.length} items)
+            Subtotal ({cartData?.items?.length} items)
           </span>
-          <span className="font-medium">${subtotal.toFixed(2)}</span>
+          <span className="font-medium">${subtotal?.toFixed(2)}</span>
         </div>
         <div className="flex justify-between text-sm">
           <span className="text-gray-500">Shipping</span>

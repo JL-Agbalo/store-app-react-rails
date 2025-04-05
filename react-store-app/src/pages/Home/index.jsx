@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "./components/Hero";
-import FeaturedProducts from "./components/FeaturedProducts";
-import Promotion from "./components/Promotion";
-import Testimonials from "./components/Testimonials";
+import Hero from "../../features/home/components/Hero";
+import FeaturedProducts from "../../features/home/components/FeaturedProducts";
+import Promotion from "../../features/home/components/Promotion";
+import Testimonials from "../../features/home/components/Testimonials";
 function Home() {
   return (
     <main className="min-h-screen bg-gray-100">
