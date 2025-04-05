@@ -6,7 +6,7 @@ import {
 } from "../../../../shared/components/icons/NavigationIcons";
 import { mainNavLinks, userNavLinks } from "../../config/navigation";
 import UserProfileCard from "../../../../shared/components/UserProfileCard";
-import { AUTH_ROUTES } from "../../constants/routes";
+import { AUTH_ROUTES } from "../../../../routes/routes";
 
 function MobileMenu({
   isOpen,

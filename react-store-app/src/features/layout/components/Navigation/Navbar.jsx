@@ -5,7 +5,7 @@ import UserMenu from "./UserMenu";
 import MobileMenu from "./MobileMenu";
 import Cart from "../../../cart/components/Cart";
 import { mainNavLinks } from "../../config/navigation";
-import { PUBLIC_ROUTES, AUTH_ROUTES } from "../../constants/routes";
+import { PUBLIC_ROUTES, AUTH_ROUTES } from "../../../../routes/routes";
 import { getUserInfoWithAvatar } from "../../../auth/services/userService";
 
 function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {

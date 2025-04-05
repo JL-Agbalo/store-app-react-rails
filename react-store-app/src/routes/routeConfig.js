@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import React from "react";
+import { PUBLIC_ROUTES, AUTH_ROUTES } from "./routes";
 
 // Lazy load pages
 const Home = lazy(() => import("../pages/Home"));
@@ -13,11 +14,11 @@ const Profile = lazy(() => import("../pages/Profile"));
 // Public routes (no auth required)
 export const publicRoutes = [
   {
-    path: "/signin",
+    path: AUTH_ROUTES.SIGNIN,
     element: React.createElement(SignIn),
   },
   {
-    path: "/signup",
+    path: AUTH_ROUTES.SIGNUP,
     element: React.createElement(SignUp),
   },
 ];
@@ -25,11 +26,11 @@ export const publicRoutes = [
 // Private routes (auth required)
 export const privateRoutes = [
   {
-    path: "/checkout",
+    path: PUBLIC_ROUTES.CHECKOUT,
     element: React.createElement(Checkout),
   },
   {
-    path: "/profile",
+    path: AUTH_ROUTES.PROFILE,
     element: React.createElement(Profile),
   },
 ];
@@ -37,15 +38,15 @@ export const privateRoutes = [
 // Common routes (accessible to all)
 export const commonRoutes = [
   {
-    path: "/",
+    path: PUBLIC_ROUTES.HOME,
     element: React.createElement(Home),
   },
   {
-    path: "/products",
+    path: PUBLIC_ROUTES.PRODUCTS,
     element: React.createElement(Products),
   },
   {
-    path: "/product/:id",
+    path: PUBLIC_ROUTES.PRODUCT_DETAIL,
     element: React.createElement(Product),
   },
 ];
