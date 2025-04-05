@@ -8,6 +8,7 @@ const SignUp = lazy(() => import("../pages/Auth/SignUp"));
 const Products = lazy(() => import("../pages/Products"));
 const Product = lazy(() => import("../pages/Product"));
 const Checkout = lazy(() => import("../pages/Checkout"));
+const Profile = lazy(() => import("../pages/Profile"));
 
 // Public routes (no auth required)
 export const publicRoutes = [
@@ -26,6 +27,10 @@ export const privateRoutes = [
   {
     path: "/checkout",
     element: React.createElement(Checkout),
+  },
+  {
+    path: "/profile",
+    element: React.createElement(Profile),
   },
 ];
 

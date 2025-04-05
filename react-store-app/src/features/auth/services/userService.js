@@ -52,5 +52,6 @@ export const getCheckoutUserDetailsById = (userId) => {
     address: profile?.address || null,
     city: profile?.city || null,
     postalCode: profile?.postal_code || null,
+    avatar: profile?.avatar_url || null,
   };
 };

@@ -9,12 +9,7 @@ export const PUBLIC_ROUTES = {
 export const AUTH_ROUTES = {
   SIGNIN: "/signin",
   SIGNUP: "/signup",
-};
-
-export const PROFILE_ROUTES = {
   PROFILE: "/profile",
-  ORDERS: "/profile/orders",
-  ADDRESSES: "/profile/addresses",
 };
 
 export const ADMIN_ROUTES = {
