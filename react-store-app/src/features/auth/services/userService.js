@@ -36,3 +36,21 @@ export const getUserInfoWithAvatar = (userId) => {
     avatar_url,
   };
 };
+
+// Get user's checkout detels by ID
+export const getCheckoutUserDetailsById = (userId) => {
+  const basicInfo = getUserBasicInfo(userId);
+  if (!basicInfo) return null;
+  const profile = getUserProfileById(userId);
+  if (!profile) return null;
+  return {
+    id: userId,
+    firstName: basicInfo.firstName,
+    lastName: basicInfo.lastName,
+    email: basicInfo?.email,
+    phone: profile?.phone || null,
+    address: profile?.address || null,
+    city: profile?.city || null,
+    postalCode: profile?.postal_code || null,
+  };
+};
