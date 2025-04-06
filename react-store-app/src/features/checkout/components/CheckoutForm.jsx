@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { getCheckoutUserDetailsById } from "../../auth/services/userService";
+import { getUserDetailsById } from "../../auth/services/userService";
 
 import ShippingInformation from "./ShippingInformation";
 import PaymentInformation from "./PaymentInformation";
 import PaymentProcessing from "./PaymentProcessing";
 
 function CheckoutForm({ step, cartTotal, userId }) {
-  const [user] = useState(getCheckoutUserDetailsById(1));
+  const [user] = useState(getUserDetailsById(1));
   const [loading, setLoading] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
   console.log("User Details:", userDetails);
@@ -14,7 +14,7 @@ function CheckoutForm({ step, cartTotal, userId }) {
     const fetchUserDetails = async () => {
       setLoading(true);
       try {
-        const data = await getCheckoutUserDetailsById(userId);
+        const data = await getUserDetailsById(userId);
         console.log("User Details:", data);
         setUserDetails(data);
       } catch (error) {

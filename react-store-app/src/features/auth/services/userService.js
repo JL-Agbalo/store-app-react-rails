@@ -37,8 +37,7 @@ export const getUserInfoWithAvatar = (userId) => {
   };
 };
 
-// Get user's checkout detels by ID
-export const getCheckoutUserDetailsById = (userId) => {
+export const getUserDetailsById = (userId) => {
   const basicInfo = getUserBasicInfo(userId);
   if (!basicInfo) return null;
   const profile = getUserProfileById(userId);
@@ -53,5 +52,25 @@ export const getCheckoutUserDetailsById = (userId) => {
     city: profile?.city || null,
     postalCode: profile?.postal_code || null,
     avatar: profile?.avatar_url || null,
+  };
+};
+
+// Get user and profile data by ID
+export const getUserDataById = (userId) => {
+  const user = users.find((user) => user.id === userId);
+  const profile = getUserProfileById(userId);
+
+  if (!user || !profile) return null;
+
+  return {
+    id: userId,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    phone: profile.phone || null,
+    address: profile.address || null,
+    city: profile.city || null,
+    postalCode: profile.postal_code || null,
+    avatar: profile.avatar_url || null,
   };
 };
