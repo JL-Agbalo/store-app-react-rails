@@ -1,8 +1,8 @@
-import Profile from "../components/Profile";
-import Account from "../components/Account";
-import CardAndBank from "../components/CardAndBank";
-import OrderHistory from "../components/OrderHistory";
-import Notification from "../components/Notification";
+import Profile from "../sections/ProfileSection/Profile";
+import Account from "../sections/AccountSection/Account";
+import CardAndBank from "../sections/CardAndBankSection/CardAndBank";
+import OrderHistory from "../sections/OrderHistorySection/OrderHistory";
+import Notification from "../sections/NotificationSection/NotificationSettings";
 
 export const sections = {
   profile: {

@@ -50,7 +50,9 @@ export const getUserDetailsById = (userId) => {
     phone: profile?.phone || null,
     address: profile?.address || null,
     city: profile?.city || null,
+    state: profile?.state || null,
     postalCode: profile?.postal_code || null,
+    country: profile?.country || null,
     avatar: profile?.avatar_url || null,
   };
 };
