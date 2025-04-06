@@ -1,11 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowDown } from "../../shared/components/Icons/ProfileIcons";
 import Sidebar from "../../features/profile/Sidebar";
 import { sections } from "../../features/profile/config/sectionsConfig";
+import { getUserDetailsById } from "../../features/auth/services/userService";
 
-function Profile() {
+function Profile({ userId = 1 }) {
   const [activeSection, setActiveSection] = useState("profile");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      setLoading(true);
+      try {
+        const data = await getUserDetailsById(userId);
+        setUserData(data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserDetails();
+  }, [userId, activeSection]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   const ActiveComponent = sections[activeSection].component;
 
   // Group sidebar-related props
@@ -43,7 +66,7 @@ function Profile() {
 
           <div className="flex-1">
             <div className="bg-white rounded-lg shadow-md p-3">
-              <ActiveComponent />
+              <ActiveComponent user={userData} />
             </div>
           </div>
         </div>

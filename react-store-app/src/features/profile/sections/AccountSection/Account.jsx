@@ -1,26 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { getUserDetailsById } from "../../../auth/services/userService";
-function Account(userId = 1) {
-  // const [userData, setUserDetails] = useState({});
-  // const [loading, setLoading] = useState(true);
-  // useEffect(() => {
-  //   const fetchUserDetails = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const data = await getUserDetailsById(userId);
-  //       console.log("User Details:", data);
-  //       setUserDetails(data);
-  //     } catch (error) {
-  //       console.error("Error fetching user details:", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+import UpdateContactInfo from "./UpdateContactInfo";
+import ChangePassword from "./ChangePassword";
+import LinkedAccounts from "./LinkedAccounts";
+import DeleteAccount from "./DeleteAccount";
 
-  //   fetchUserDetails();
-  // }, [userId]);
-  // console.log("User Data:", userData);
-
+function Account({ user }) {
+  console.log("Account:", user);
   return (
     <section className="p-5">
       <h2 className="text-xl font-semibold mb-4">Account Information</h2>

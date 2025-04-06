@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Lock } from "../../../../shared/components/Icons/ProfileIcons";
 import Button from "../../../../shared/components/Button";
 function UserInformation({ user }) {
-  console.log("User Information:", user);
-  console.log(user);
   const [formData, setFormData] = useState({
     firstName: user.firstName,
     lastName: user.lastName,

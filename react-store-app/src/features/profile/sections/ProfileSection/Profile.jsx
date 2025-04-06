@@ -1,43 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { getUserDetailsById } from "../../../auth/services/userService";
+import React from "react";
 import Avatar from "../../../../shared/components/Avatar";
 import UserInformation from "./UserInformation";
 
-function Profile({ userId = 1 }) {
-  const [userData, setUserDetails] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      setLoading(true);
-      try {
-        const data = await getUserDetailsById(1);
-        console.log("User Details:", data);
-        setUserDetails(data);
-      } catch (error) {
-        console.error("Error fetching user details:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserDetails();
-  }, [userId]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  console.log("User Data:", userData);
-
+function Profile({ user }) {
+  console.log("Profile:", user);
   return (
     <section className="p-5">
       <h2 className="text-xl font-semibold mb-4">Profile Information</h2>
       <div>
         <div className="mb-4 flex items-center gap-4">
           <Avatar
-            src={userData?.avatar}
-            alt={userData?.firstName}
+            src={user?.avatar}
+            alt={user?.firstName}
             className="w-20 h-20 border-2 border-gray-200"
           />
           <div className="flex flex-col">
@@ -51,7 +25,7 @@ function Profile({ userId = 1 }) {
             </p>
           </div>
         </div>
-        <UserInformation user={userData} />
+        <UserInformation user={user} />
       </div>
     </section>
   );
