@@ -5,7 +5,14 @@ import { payments } from "../data/paymentsData";
 
 // Function to get orders by user_id
 export const getOrdersByUserId = (userId) => {
-  return orders.filter((order) => order.user_id === userId);
+  return orders
+    .filter((order) => order.user_id === userId)
+    .map((order) => ({
+      id: order.id,
+      date: order.created_at,
+      status: order.status,
+      total: order.total_price,
+    }));
 };
 
 // Function to filter orders by status
