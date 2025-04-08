@@ -1,7 +1,7 @@
 import { orders } from "../data/ordersData";
 import { orderItems } from "../data/ordersItemData";
-import { orderHistory } from "../data/orderHistoryData";
 import { payments } from "../data/paymentsData";
+import { products } from "../../products/data/productsData";
 
 // Function to get orders by user_id
 export const getOrdersByUserId = (userId) => {
@@ -21,4 +21,25 @@ export const filterOrders = (orders, status) => {
   return orders.filter(
     (order) => order.status.toLowerCase() === status.toLowerCase()
   );
+};
+
+// Function to get order items with product details by order_id
+export const getOrderItemsByOrderId = (orderId) => {
+  return orderItems
+    .filter((item) => item.order_id === orderId)
+    .map((item) => {
+      const product = products.find((p) => p.id === item.product_id);
+      return {
+        ...item,
+        productName: product?.name || "Unknown Product",
+        productDescription: product?.description || "No description available",
+        productPrice: product?.price || 0,
+        productStock: product?.stock || 0,
+        productCategoryId: product?.category_id || null,
+        status: item.status,
+        trackingId: item.tracking_id,
+        location: item.location,
+        comment: item.comment,
+      };
+    });
 };

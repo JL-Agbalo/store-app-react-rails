@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../../../shared/components/Button";
+import OrderTableRow from "./OrderTableRow";
 
 function OrderTable({ orders }) {
   return (
@@ -24,24 +24,8 @@ function OrderTable({ orders }) {
         </tr>
       </thead>
       <tbody>
-        {orders.map((order) => (
-          <tr key={order?.id} className="border-b border-gray-100">
-            <td className="text-center py-3 px-4 text-sm text-gray-700">
-              {order?.id}
-            </td>
-            <td className="text-center py-3 px-4 text-sm text-gray-700">
-              {order?.date}
-            </td>
-            <td className="text-center py-3 px-4 text-sm text-gray-700">
-              {order?.status}
-            </td>
-            <td className="text-center py-3 px-4 text-sm text-gray-700">
-              ${order?.total.toFixed(2)}
-            </td>
-            <td className="py-3 px-4 text-center">
-              <Button>Details</Button>
-            </td>
-          </tr>
+        {orders.map((order, index) => (
+          <OrderTableRow key={index} order={order} />
         ))}
       </tbody>
     </table>
