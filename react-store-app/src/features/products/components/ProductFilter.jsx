@@ -1,5 +1,5 @@
 import React from "react";
-import { categoryService } from "../../../services/categoryService";
+import { categoryService } from "../../../features/products/services/categoryService";
 
 function ProductFilter({ onFilterChange, selectedCategory }) {
   const categories = categoryService.getAllCategories();

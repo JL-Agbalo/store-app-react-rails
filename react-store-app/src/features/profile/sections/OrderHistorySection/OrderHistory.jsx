@@ -5,6 +5,7 @@ import {
 } from "../../service/orderHistoryService";
 import OrderFilter from "./OrderFilter";
 import OrderTable from "./OrderTable";
+import OrderDetails from "./OrderDetails";
 
 function OrderHistory({ userId = 1 }) {
   const [orderHistory, setOrderHistory] = useState([]);
@@ -23,6 +24,19 @@ function OrderHistory({ userId = 1 }) {
     return filterOrders(orderHistory, filters.status);
   };
 
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSelectOrder = (orderId) => {
+    setSelectedOrderId(orderId);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedOrderId(null);
+  };
+
   return (
     <section className="p-5">
       <h2 className="text-xl font-semibold mb-4">Order History</h2>
@@ -36,11 +50,21 @@ function OrderHistory({ userId = 1 }) {
                   <p className="text-gray-500">No orders found</p>
                 </div>
               ) : (
-                <OrderTable orders={filterOrdersByStatus()} />
+                <OrderTable
+                  orders={filterOrdersByStatus()}
+                  onSelectOrder={handleSelectOrder}
+                />
               )}
             </div>
           </div>
         </div>
+        {selectedOrderId && (
+          <OrderDetails
+            orderId={selectedOrderId}
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+          />
+        )}
       </div>
     </section>
   );

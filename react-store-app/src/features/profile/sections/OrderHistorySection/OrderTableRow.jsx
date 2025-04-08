@@ -1,9 +1,5 @@
-import React from "react";
 import Button from "../../../../shared/components/Button";
-import { getOrderItemsByOrderId } from "../../service/orderHistoryService";
 const getStatusStyles = (status) => {
-  const data = getOrderItemsByOrderId(1, 1);
-  console.log("data", data);
   switch (status.toLowerCase()) {
     case "delivered":
       return "bg-green-50 text-green-700 border-green-200";
@@ -20,35 +16,37 @@ const getStatusStyles = (status) => {
   }
 };
 
-function OrderTableRow({ order }) {
+function OrderTableRow({ order, onSelectOrder }) {
   return (
-    <tr className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
-      <td className="py-3 px-4 text-sm text-gray-950 font-medium text-center">
-        {order?.id}
-      </td>
-      <td className="py-3 px-4 text-sm text-gray-500 text-center">
-        {new Date(order?.date).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </td>
-      <td className="py-3 px-4 text-center">
-        <span
-          className={`px-2 py-1 text-xs font-medium border rounded-md ${getStatusStyles(
-            order?.status
-          )}`}
-        >
-          {order?.status}
-        </span>
-      </td>
-      <td className="py-3 px-4 text-sm text-gray-900 text-center">
-        ${order?.total.toFixed(2)}
-      </td>
-      <td className="py-3 px-4 text-center">
-        <Button>Details</Button>
-      </td>
-    </tr>
+    <>
+      <tr className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+        <td className="py-3 px-4 text-sm text-gray-950 font-medium text-center">
+          {order?.id}
+        </td>
+        <td className="py-3 px-4 text-sm text-gray-500 text-center">
+          {new Date(order?.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </td>
+        <td className="py-3 px-4 text-center">
+          <span
+            className={`px-2 py-1 text-xs font-medium border rounded-md ${getStatusStyles(
+              order?.status
+            )}`}
+          >
+            {order?.status}
+          </span>
+        </td>
+        <td className="py-3 px-4 text-sm text-gray-900 text-center">
+          ${order?.total.toFixed(2)}
+        </td>
+        <td className="py-3 px-4 text-center">
+          <Button onClick={() => onSelectOrder(order.id)}>Details</Button>
+        </td>
+      </tr>
+    </>
   );
 }
 

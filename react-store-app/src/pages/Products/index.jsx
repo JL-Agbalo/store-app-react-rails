@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProductGrid from "../../features/products/components/ProductGrid";
 import ProductFilter from "../../features/products/components/ProductFilter";
-import { getProductsByCategoryId } from "../../services/productService";
+import { getProductsByCategoryId } from "../../features/products/services/productService";
 
 function ProductCatalog() {
   const [products, setProducts] = useState([]);

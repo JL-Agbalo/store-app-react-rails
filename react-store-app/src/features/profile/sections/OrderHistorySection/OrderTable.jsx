@@ -1,7 +1,7 @@
 import React from "react";
 import OrderTableRow from "./OrderTableRow";
 
-function OrderTable({ orders }) {
+function OrderTable({ orders, onSelectOrder }) {
   return (
     <table className="w-full table-auto">
       <thead>
@@ -25,7 +25,11 @@ function OrderTable({ orders }) {
       </thead>
       <tbody>
         {orders.map((order, index) => (
-          <OrderTableRow key={index} order={order} />
+          <OrderTableRow
+            key={index}
+            order={order}
+            onSelectOrder={onSelectOrder}
+          />
         ))}
       </tbody>
     </table>
