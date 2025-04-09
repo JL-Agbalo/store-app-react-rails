@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCheckoutByUserId } from "../../features/checkout/services/checkoutServices";
 import CheckoutForm from "../../features/checkout/components/CheckoutForm";
-
+import CheckoutSummary from "../../features/checkout/components/CheckoutSummary";
 function Checkout({ userId = 1 }) {
   const [step, setStep] = useState(1);
 
@@ -19,10 +19,10 @@ function Checkout({ userId = 1 }) {
         setLoading(false);
       }
     };
-
     fetchProduct();
   }, [userId]);
 
+  console.log("checkout", checkout);
   return (
     <main className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,19 +55,23 @@ function Checkout({ userId = 1 }) {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-3/5">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <CheckoutForm step={step} {...checkout} userId={userId} />
+              <CheckoutForm
+                step={step}
+                total={checkout?.total}
+                userId={userId}
+              />
             </div>
           </div>
           <div className="lg:w-2/5">
             <div className="sticky top-24">
               <div className="bg-white rounded-lg shadow-md p-8">
-                {/* <CheckoutSummary {...checkoutData} /> */}
+                <CheckoutSummary checkout={checkout} />
                 <div className="mt-8 space-y-4">
                   {step === 1 ? (
                     <button
                       onClick={() => setStep(2)}
                       className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-900 transition duration-300"
-                      disabled={checkout?.items?.length === 0}
+                      disabled={checkout?.cartItems?.length === 0}
                     >
                       Continue to Payment
                     </button>

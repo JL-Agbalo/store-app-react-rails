@@ -3,9 +3,7 @@ import { products } from "../../products/data/productsData";
 import { getPrimaryImage } from "../../products/services/productService";
 
 export const getCheckoutByUserId = (userId) => {
-  console.log("checkoutData", checkoutData);
   const checkout = checkoutData.find((checkout) => checkout.userId === userId);
-
   if (!checkout) return null;
 
   const checkoutItems = checkout.items.map((item) => {
