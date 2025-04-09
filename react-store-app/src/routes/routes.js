@@ -1,7 +1,7 @@
 export const PUBLIC_ROUTES = {
   HOME: "/",
   PRODUCTS: "/products",
-  PRODUCT_DETAIL: "/products/:id",
+  PRODUCT_DETAIL: "/product/:id",
   CART: "/cart",
   CHECKOUT: "/checkout",
 };

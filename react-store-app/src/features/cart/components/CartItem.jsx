@@ -2,7 +2,6 @@ import React from "react";
 import { Plus, Minus, Close } from "../../../shared/components/Icons/CartIcons";
 
 function CartItem({ item }) {
-  console.log("CartItem", item);
   return (
     <div className="flex items-start gap-2 py-2.5 px-1.5 hover:bg-gray-50/50 rounded-lg transition-all group">
       <div className="relative flex-shrink-0">

@@ -5,7 +5,7 @@ import { publicRoutes, privateRoutes, commonRoutes } from "./routeConfig";
 import MainLayout from "../features/layout/components/Layout/MainLayout";
 import AuthLayout from "../features/layout/components/Layout/AuthLayout";
 
-function AppRouter({ isAuthenticated, setIsAuthenticated, user }) {
+function AppRouter({ isAuthenticated, setIsAuthenticated, userId }) {
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
@@ -15,7 +15,7 @@ function AppRouter({ isAuthenticated, setIsAuthenticated, user }) {
             element={
               <MainLayout
                 isAuthenticated={isAuthenticated}
-                userId={user.id}
+                userId={userId}
                 setIsAuthenticated={setIsAuthenticated}
               />
             }
@@ -48,7 +48,7 @@ function AppRouter({ isAuthenticated, setIsAuthenticated, user }) {
               element={
                 <MainLayout
                   isAuthenticated={isAuthenticated}
-                  userId={user.id}
+                  userId={userId}
                   setIsAuthenticated={setIsAuthenticated}
                 />
               }

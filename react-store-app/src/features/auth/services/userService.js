@@ -1,5 +1,6 @@
 import { users } from "../data/usersData";
 import { profiles } from "../data//profilesData";
+import { user1, userProfile1 } from "../data/usersData";
 
 // Get user profile by ID
 export const getUserProfileById = (userId) => {
@@ -75,4 +76,16 @@ export const getUserDataById = (userId) => {
     postalCode: profile.postal_code || null,
     avatar: profile.avatar_url || null,
   };
+};
+
+// For UI Fixing
+// Get user with profile by ID
+export const getUserWithProfile = (userId) => {
+  if (user1.id === userId && userProfile1.userId === userId) {
+    return {
+      ...user1,
+      ...userProfile1,
+    };
+  }
+  return null;
 };

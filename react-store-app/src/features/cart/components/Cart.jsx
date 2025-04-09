@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../../../shared/components/Modal";
 import { useNavigate } from "react-router-dom";
 import { getCartByUserId } from "../../cart/services/cartService";
@@ -7,7 +7,6 @@ import CartList from "./CartList";
 
 function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
   const navigate = useNavigate();
-
   const [cartData, setCartData] = useState(null);
 
   const handleCheckout = () => {
@@ -18,8 +17,8 @@ function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const cart = await getCartByUserId(userId);
-        setCartData(cart);
+        const data = await getCartByUserId(userId);
+        setCartData(data);
       } catch (error) {
         console.error("Error fetching cart data:", error);
       }

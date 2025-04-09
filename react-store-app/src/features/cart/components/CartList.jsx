@@ -3,8 +3,8 @@ import { Bag } from "../../../shared/components/Icons/CartIcons";
 import CartItem from "./CartItem";
 
 function CartList({ cartData }) {
-  const items = cartData?.items || [];
-  if (items.length === 0) {
+  const cartItems = cartData?.items || [];
+  if (cartItems.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16">
         <div className="w-16 h-16 mb-4 text-gray-300">
@@ -22,8 +22,8 @@ function CartList({ cartData }) {
 
   return (
     <div className="space-y-1 px-2">
-      {items.map((item) => (
-        <CartItem key={item.product_id} item={item} />
+      {cartItems.map((cartItem) => (
+        <CartItem key={cartItem.product_id} item={cartItem} />
       ))}
     </div>
   );

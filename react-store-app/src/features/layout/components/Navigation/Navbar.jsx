@@ -5,7 +5,7 @@ import UserMenu from "./UserMenu";
 import MobileMenu from "./MobileMenu";
 import Cart from "../../../cart/components/Cart";
 import { mainNavLinks } from "../../config/navigation";
-import { PUBLIC_ROUTES, AUTH_ROUTES } from "../../../../routes/routes";
+import { AUTH_ROUTES } from "../../../../routes/routes";
 import { getUserInfoWithAvatar } from "../../../auth/services/userService";
 
 function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
@@ -15,8 +15,8 @@ function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      const userInfo = getUserInfoWithAvatar(userId);
-      setUser(userInfo);
+      const data = getUserInfoWithAvatar(userId);
+      setUser(data);
     }
   }, [isAuthenticated, userId]);
 

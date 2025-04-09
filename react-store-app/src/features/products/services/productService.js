@@ -59,8 +59,8 @@ export const getProductById = (productId) => {
     ...product,
     ...getProductImages(product.id),
     categoryName: category?.name || "Uncategorized",
-    reviews: getReviewsWithUser(product.id),
-    ...getProductReviewStats(product.id),
+    // reviews: getReviewsWithUser(product.id), // For optimization will separate the get reviews by id
+    // ...getProductReviewStats(product.id),
   };
 };
 

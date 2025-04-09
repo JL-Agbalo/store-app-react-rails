@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getRelatedProductsByCategoryId } from "../../products/services/productsService";
+import { getRelatedProductsByCategoryId } from "../../products/services/productService";
 import ProductGrid from "./ProductGrid";
 
 function RelatedProducts({ category_id, product_id }) {
