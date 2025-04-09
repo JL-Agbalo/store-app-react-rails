@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 import { getRelatedProductsByCategoryId } from "../../products/services/productService";
 import ProductGrid from "./ProductGrid";
 
-function RelatedProducts({ category_id, product_id }) {
+function RelatedProducts({ categoryId, productId }) {
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       setLoading(true);
       try {
-        const products = getRelatedProductsByCategoryId(
-          category_id,
-          product_id
-        );
+        const products = getRelatedProductsByCategoryId(categoryId, productId);
         setRelatedProducts(products);
       } catch (error) {
         console.error("Error fetching related products:", error);
@@ -23,7 +20,7 @@ function RelatedProducts({ category_id, product_id }) {
     };
 
     fetchRelatedProducts();
-  }, [category_id, product_id]);
+  }, [categoryId, productId]);
 
   return (
     <div>

@@ -8,6 +8,7 @@ import CartList from "./CartList";
 function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
   const navigate = useNavigate();
   const [cartData, setCartData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleCheckout = () => {
     setIsCartOpen(false);
@@ -16,13 +17,17 @@ function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
 
   useEffect(() => {
     const fetchCart = async () => {
+      setLoading(true);
       try {
         const data = await getCartByUserId(userId);
         setCartData(data);
       } catch (error) {
         console.error("Error fetching cart data:", error);
+      } finally {
+        setLoading(false);
       }
     };
+
     if (userId && isOpen && !cartData) {
       fetchCart();
     }

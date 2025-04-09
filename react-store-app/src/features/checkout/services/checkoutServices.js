@@ -7,13 +7,13 @@ export const getCheckoutByUserId = (userId) => {
   if (!checkout) return null;
 
   const checkoutItems = checkout.items.map((item) => {
-    const product = products.find((p) => p.id === item.product_id);
+    const product = products.find((p) => p.id === item.productId);
     return {
-      product_id: item.product_id,
+      productId: item.productId,
       name: product.name,
       price: item.price,
       quantity: item.quantity,
-      primaryImage: getPrimaryImage(item.product_id),
+      primaryImage: getPrimaryImage(item.productId),
       total: item.price * item.quantity,
     };
   });

@@ -7,6 +7,7 @@ function Checkout({ userId = 1 }) {
 
   const [loading, setLoading] = useState(false);
   const [checkout, setCheckout] = useState(null);
+
   useEffect(() => {
     const fetchProduct = async () => {
       setLoading(true);

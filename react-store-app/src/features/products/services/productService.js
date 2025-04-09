@@ -8,7 +8,7 @@ import {
 } from "./reviewService";
 
 const getProductImages = (productId) => {
-  const images = productImages.filter((img) => img.product_id === productId);
+  const images = productImages.filter((img) => img.productId === productId);
   return {
     images,
     primaryImage: images.find((img) => img.is_primary)?.image_url,
@@ -17,7 +17,7 @@ const getProductImages = (productId) => {
 
 export const getPrimaryImage = (productId) => {
   return productImages.find(
-    (img) => img.product_id === productId && img.is_primary
+    (img) => img.productId === productId && img.is_primary
   )?.image_url;
 };
 
@@ -39,7 +39,7 @@ export const getProductsByCategoryId = (categoryId) => {
     categoryId === 1 || categoryId === "1"
       ? allProducts
       : allProducts.filter(
-          (product) => product.category_id === parseInt(categoryId)
+          (product) => product.categoryId === parseInt(categoryId)
         );
 
   return filteredProducts.map((product) => ({
@@ -53,7 +53,7 @@ export const getProductById = (productId) => {
   const product = products.find((p) => p.id === parseInt(productId));
   if (!product) return null;
 
-  const category = categoryService.getCategoryById(product.category_id);
+  const category = categoryService.getCategoryById(product.categoryId);
 
   return {
     ...product,
@@ -86,7 +86,7 @@ export const getRelatedProductsByCategoryId = (
 
   const relatedProducts = allProducts.filter(
     (product) =>
-      product.category_id === parseInt(categoryId) &&
+      product.categoryId === parseInt(categoryId) &&
       product.id !== parseInt(excludeProductId)
   );
 

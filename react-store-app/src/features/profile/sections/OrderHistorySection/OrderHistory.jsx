@@ -12,12 +12,20 @@ function OrderHistory({ userId = 1 }) {
   const [filters, setFilters] = useState({
     status: "all",
   });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Fetch orders for the user
-    const orders = getOrdersByUserId(userId);
-    console.log("Orders:", orders);
-    setOrderHistory(orders);
+    const fetchOrders = async () => {
+      setLoading(true);
+      try {
+        const orders = getOrdersByUserId(userId);
+        setOrderHistory(orders);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOrders();
   }, [userId]);
 
   const filterOrdersByStatus = () => {

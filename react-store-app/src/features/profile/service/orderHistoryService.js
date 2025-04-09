@@ -5,10 +5,10 @@ import { products } from "../../products/data/productsData";
 import { getUserDetailsById } from "../../auth/services/userService";
 import { getPrimaryImage } from "../../products/services/productService";
 
-// Function to get orders by user_id
+// Function to get orders by userId
 export const getOrdersByUserId = (userId) => {
   return orders
-    .filter((order) => order.user_id === userId)
+    .filter((order) => order.userId === userId)
     .map((order) => ({
       id: order.id,
       date: order.created_at,
@@ -36,16 +36,16 @@ export const getOrderDetailsByOrderId = (orderId) => {
     return null;
   }
 
-  const user = getUserDetailsById(order.user_id);
+  const user = getUserDetailsById(order.userId);
   const payment = payments.find((p) => p.order_id === orderId);
   const items = orderItems
     .filter((item) => item.order_id === orderId)
     .map((item) => {
-      const product = products.find((p) => p.id === item.product_id);
-      const primaryImage = getPrimaryImage(item.product_id); // Get only the primary image
+      const product = products.find((p) => p.id === item.productId);
+      const primaryImage = getPrimaryImage(item.productId); // Get only the primary image
       return {
         id: item.id,
-        productId: item.product_id,
+        productId: item.productId,
         productName: product?.name || "Unknown Product",
         productImage: primaryImage || null,
         quantity: item.quantity,

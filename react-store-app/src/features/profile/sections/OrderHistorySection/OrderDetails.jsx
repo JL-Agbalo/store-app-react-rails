@@ -7,14 +7,20 @@ function OrderDetails({ isOpen, onClose, orderId }) {
   const [userData, setUserData] = useState(null);
   const [products, setProducts] = useState([]);
   const [shipping, setShipping] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (isOpen && orderId) {
-      const details = getOrderDetailsByOrderId(orderId);
-      setOrderDetails(details.orderDetails);
-      setUserData(details.userData);
-      setProducts(details.products);
-      setShipping(details.shipping);
+      setLoading(true);
+      try {
+        const details = getOrderDetailsByOrderId(orderId);
+        setOrderDetails(details.orderDetails);
+        setUserData(details.userData);
+        setProducts(details.products);
+        setShipping(details.shipping);
+      } finally {
+        setLoading(false);
+      }
     }
   }, [isOpen, orderId]);
 

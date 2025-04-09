@@ -2,7 +2,7 @@ export const orderItems = [
   {
     id: 1,
     order_id: 1,
-    product_id: 1,
+    productId: 1,
     quantity: 2,
     price: 19.99,
     status: "Delivered",
@@ -14,7 +14,7 @@ export const orderItems = [
   {
     id: 2,
     order_id: 1,
-    product_id: 2,
+    productId: 2,
     quantity: 1,
     price: 699.99,
     status: "Delivered",
@@ -26,7 +26,7 @@ export const orderItems = [
   {
     id: 3,
     order_id: 2,
-    product_id: 3,
+    productId: 3,
     quantity: 3,
     price: 49.99,
     status: "Shipped",
@@ -38,7 +38,7 @@ export const orderItems = [
   {
     id: 4,
     order_id: 3,
-    product_id: 4,
+    productId: 4,
     quantity: 1,
     price: 89.99,
     status: "Pending",
@@ -50,7 +50,7 @@ export const orderItems = [
   {
     id: 5,
     order_id: 4,
-    product_id: 5,
+    productId: 5,
     quantity: 1,
     price: 120.0,
     status: "Processing",
@@ -62,7 +62,7 @@ export const orderItems = [
   {
     id: 6,
     order_id: 5,
-    product_id: 6,
+    productId: 6,
     quantity: 2,
     price: 37.75,
     status: "Delivered",
@@ -74,7 +74,7 @@ export const orderItems = [
   {
     id: 7,
     order_id: 6,
-    product_id: 7,
+    productId: 7,
     quantity: 1,
     price: 200.0,
     status: "Shipped",
@@ -86,7 +86,7 @@ export const orderItems = [
   {
     id: 8,
     order_id: 7,
-    product_id: 8,
+    productId: 8,
     quantity: 5,
     price: 10.0,
     status: "Pending",
@@ -98,7 +98,7 @@ export const orderItems = [
   {
     id: 9,
     order_id: 8,
-    product_id: 9,
+    productId: 9,
     quantity: 3,
     price: 60.0,
     status: "Delivered",
@@ -110,7 +110,7 @@ export const orderItems = [
   {
     id: 10,
     order_id: 9,
-    product_id: 10,
+    productId: 10,
     quantity: 1,
     price: 300.0,
     status: "Processing",

@@ -1,7 +1,7 @@
 export const orders = [
   {
     id: 1,
-    user_id: 1,
+    userId: 1,
     total_price: 299.98,
     status: "Delivered",
     created_at: "2025-03-20T10:00:00Z",
@@ -9,7 +9,7 @@ export const orders = [
   },
   {
     id: 2,
-    user_id: 2,
+    userId: 2,
     total_price: 149.99,
     status: "Shipped",
     created_at: "2025-03-21T12:00:00Z",
@@ -17,7 +17,7 @@ export const orders = [
   },
   {
     id: 3,
-    user_id: 1,
+    userId: 1,
     total_price: 89.99,
     status: "Pending",
     created_at: "2025-03-22T14:00:00Z",
@@ -25,7 +25,7 @@ export const orders = [
   },
   {
     id: 4,
-    user_id: 1,
+    userId: 1,
     total_price: 120.0,
     status: "Processing",
     created_at: "2025-03-23T09:00:00Z",
@@ -33,7 +33,7 @@ export const orders = [
   },
   {
     id: 5,
-    user_id: 1,
+    userId: 1,
     total_price: 75.5,
     status: "Delivered",
     created_at: "2025-03-24T11:00:00Z",
@@ -41,7 +41,7 @@ export const orders = [
   },
   {
     id: 6,
-    user_id: 1,
+    userId: 1,
     total_price: 200.0,
     status: "Shipped",
     created_at: "2025-03-25T15:00:00Z",
@@ -49,7 +49,7 @@ export const orders = [
   },
   {
     id: 7,
-    user_id: 1,
+    userId: 1,
     total_price: 50.0,
     status: "Pending",
     created_at: "2025-03-26T08:00:00Z",
@@ -57,7 +57,7 @@ export const orders = [
   },
   {
     id: 8,
-    user_id: 1,
+    userId: 1,
     total_price: 180.0,
     status: "Delivered",
     created_at: "2025-03-27T10:00:00Z",
@@ -65,7 +65,7 @@ export const orders = [
   },
   {
     id: 9,
-    user_id: 1,
+    userId: 1,
     total_price: 95.0,
     status: "Processing",
     created_at: "2025-03-28T13:00:00Z",
@@ -73,7 +73,7 @@ export const orders = [
   },
   {
     id: 10,
-    user_id: 1,
+    userId: 1,
     total_price: 300.0,
     status: "Shipped",
     created_at: "2025-03-29T16:00:00Z",

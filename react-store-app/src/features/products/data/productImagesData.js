@@ -2,7 +2,7 @@ export const productImages = [
   // Product 1 - T-Shirt
   {
     id: 1,
-    product_id: 1,
+    productId: 1,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -10,7 +10,7 @@ export const productImages = [
   },
   {
     id: 2,
-    product_id: 1,
+    productId: 1,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -18,7 +18,7 @@ export const productImages = [
   },
   {
     id: 3,
-    product_id: 1,
+    productId: 1,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -27,7 +27,7 @@ export const productImages = [
   // Product 2 - Smartphone
   {
     id: 4,
-    product_id: 2,
+    productId: 2,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -35,7 +35,7 @@ export const productImages = [
   },
   {
     id: 5,
-    product_id: 2,
+    productId: 2,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -43,7 +43,7 @@ export const productImages = [
   },
   {
     id: 6,
-    product_id: 2,
+    productId: 2,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -52,7 +52,7 @@ export const productImages = [
   // Product 3 - Wallet
   {
     id: 7,
-    product_id: 3,
+    productId: 3,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -60,7 +60,7 @@ export const productImages = [
   },
   {
     id: 8,
-    product_id: 3,
+    productId: 3,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -68,7 +68,7 @@ export const productImages = [
   },
   {
     id: 9,
-    product_id: 3,
+    productId: 3,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -77,7 +77,7 @@ export const productImages = [
   // Product 4
   {
     id: 10,
-    product_id: 4,
+    productId: 4,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -85,7 +85,7 @@ export const productImages = [
   },
   {
     id: 11,
-    product_id: 4,
+    productId: 4,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -93,7 +93,7 @@ export const productImages = [
   },
   {
     id: 12,
-    product_id: 4,
+    productId: 4,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -102,7 +102,7 @@ export const productImages = [
   // Product 5
   {
     id: 13,
-    product_id: 5,
+    productId: 5,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -110,7 +110,7 @@ export const productImages = [
   },
   {
     id: 14,
-    product_id: 5,
+    productId: 5,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -118,7 +118,7 @@ export const productImages = [
   },
   {
     id: 15,
-    product_id: 5,
+    productId: 5,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -127,7 +127,7 @@ export const productImages = [
   // Product 6
   {
     id: 16,
-    product_id: 6,
+    productId: 6,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -135,7 +135,7 @@ export const productImages = [
   },
   {
     id: 17,
-    product_id: 6,
+    productId: 6,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -143,7 +143,7 @@ export const productImages = [
   },
   {
     id: 18,
-    product_id: 6,
+    productId: 6,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -152,7 +152,7 @@ export const productImages = [
   // Product 7
   {
     id: 19,
-    product_id: 7,
+    productId: 7,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -160,7 +160,7 @@ export const productImages = [
   },
   {
     id: 20,
-    product_id: 7,
+    productId: 7,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -168,7 +168,7 @@ export const productImages = [
   },
   {
     id: 21,
-    product_id: 7,
+    productId: 7,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -177,7 +177,7 @@ export const productImages = [
   // Product 8
   {
     id: 22,
-    product_id: 8,
+    productId: 8,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -185,7 +185,7 @@ export const productImages = [
   },
   {
     id: 23,
-    product_id: 8,
+    productId: 8,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -193,7 +193,7 @@ export const productImages = [
   },
   {
     id: 24,
-    product_id: 8,
+    productId: 8,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -202,7 +202,7 @@ export const productImages = [
   // Product 9
   {
     id: 25,
-    product_id: 9,
+    productId: 9,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -210,7 +210,7 @@ export const productImages = [
   },
   {
     id: 26,
-    product_id: 9,
+    productId: 9,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -218,7 +218,7 @@ export const productImages = [
   },
   {
     id: 27,
-    product_id: 9,
+    productId: 9,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -227,7 +227,7 @@ export const productImages = [
   // Product 10
   {
     id: 28,
-    product_id: 10,
+    productId: 10,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -235,7 +235,7 @@ export const productImages = [
   },
   {
     id: 29,
-    product_id: 10,
+    productId: 10,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -243,7 +243,7 @@ export const productImages = [
   },
   {
     id: 30,
-    product_id: 10,
+    productId: 10,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -252,7 +252,7 @@ export const productImages = [
   // Product 11
   {
     id: 31,
-    product_id: 11,
+    productId: 11,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -260,7 +260,7 @@ export const productImages = [
   },
   {
     id: 32,
-    product_id: 11,
+    productId: 11,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -268,7 +268,7 @@ export const productImages = [
   },
   {
     id: 33,
-    product_id: 11,
+    productId: 11,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -277,7 +277,7 @@ export const productImages = [
   // Product 12
   {
     id: 34,
-    product_id: 12,
+    productId: 12,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -285,7 +285,7 @@ export const productImages = [
   },
   {
     id: 35,
-    product_id: 12,
+    productId: 12,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -293,7 +293,7 @@ export const productImages = [
   },
   {
     id: 36,
-    product_id: 12,
+    productId: 12,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -302,7 +302,7 @@ export const productImages = [
   // Product 13
   {
     id: 37,
-    product_id: 13,
+    productId: 13,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -310,7 +310,7 @@ export const productImages = [
   },
   {
     id: 38,
-    product_id: 13,
+    productId: 13,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -318,7 +318,7 @@ export const productImages = [
   },
   {
     id: 39,
-    product_id: 13,
+    productId: 13,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -327,7 +327,7 @@ export const productImages = [
   // Product 14
   {
     id: 40,
-    product_id: 14,
+    productId: 14,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -335,7 +335,7 @@ export const productImages = [
   },
   {
     id: 41,
-    product_id: 14,
+    productId: 14,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -343,7 +343,7 @@ export const productImages = [
   },
   {
     id: 42,
-    product_id: 14,
+    productId: 14,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -352,7 +352,7 @@ export const productImages = [
   // Product 15
   {
     id: 43,
-    product_id: 15,
+    productId: 15,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -360,7 +360,7 @@ export const productImages = [
   },
   {
     id: 44,
-    product_id: 15,
+    productId: 15,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -368,7 +368,7 @@ export const productImages = [
   },
   {
     id: 45,
-    product_id: 15,
+    productId: 15,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -377,7 +377,7 @@ export const productImages = [
   // Product 16
   {
     id: 46,
-    product_id: 16,
+    productId: 16,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -385,7 +385,7 @@ export const productImages = [
   },
   {
     id: 47,
-    product_id: 16,
+    productId: 16,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -393,7 +393,7 @@ export const productImages = [
   },
   {
     id: 48,
-    product_id: 16,
+    productId: 16,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,
@@ -402,7 +402,7 @@ export const productImages = [
   // Product 17
   {
     id: 49,
-    product_id: 17,
+    productId: 17,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: true,
     order: 1,
@@ -410,7 +410,7 @@ export const productImages = [
   },
   {
     id: 50,
-    product_id: 17,
+    productId: 17,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 2,
@@ -418,7 +418,7 @@ export const productImages = [
   },
   {
     id: 51,
-    product_id: 17,
+    productId: 17,
     image_url: "https://i.imgur.com/ZANVnHE.jpeg",
     is_primary: false,
     order: 3,

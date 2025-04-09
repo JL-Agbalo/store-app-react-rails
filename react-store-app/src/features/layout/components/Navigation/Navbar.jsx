@@ -12,11 +12,17 @@ function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
-      const data = getUserInfoWithAvatar(userId);
-      setUser(data);
+      setLoading(true);
+      try {
+        const data = getUserInfoWithAvatar(userId);
+        setUser(data);
+      } finally {
+        setLoading(false);
+      }
     }
   }, [isAuthenticated, userId]);
 

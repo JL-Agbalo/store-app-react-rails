@@ -1,7 +1,7 @@
 export const reviews = [
   {
     id: 1,
-    product_id: 1,
+    productId: 1,
     userId: 1,
     rating: 4,
     comment: "Great t-shirt! Very comfortable and fits well.",
@@ -9,7 +9,7 @@ export const reviews = [
   },
   {
     id: 2,
-    product_id: 2,
+    productId: 2,
     userId: 2,
     rating: 5,
     comment: "This smartphone exceeds all my expectations. Amazing camera!",
@@ -17,7 +17,7 @@ export const reviews = [
   },
   {
     id: 3,
-    product_id: 3,
+    productId: 3,
     userId: 3,
     rating: 4,
     comment: "Good quality leather wallet, lots of space for cards.",
@@ -25,7 +25,7 @@ export const reviews = [
   },
   {
     id: 4,
-    product_id: 4,
+    productId: 4,
     userId: 4,
     rating: 5,
     comment: "The sofa set is beautiful and very comfortable.",
@@ -33,7 +33,7 @@ export const reviews = [
   },
   {
     id: 5,
-    product_id: 10,
+    productId: 10,
     userId: 5,
     rating: 5,
     comment: "These headphones have amazing sound quality!",
@@ -41,7 +41,7 @@ export const reviews = [
   },
   {
     id: 6,
-    product_id: 16,
+    productId: 16,
     userId: 6,
     rating: 3,
     comment: "Smart watch is okay, battery life could be better.",
@@ -49,7 +49,7 @@ export const reviews = [
   },
   {
     id: 7,
-    product_id: 11,
+    productId: 11,
     userId: 1,
     rating: 5,
     comment: "Perfect dress for summer! Great material.",
@@ -57,7 +57,7 @@ export const reviews = [
   },
   {
     id: 8,
-    product_id: 8,
+    productId: 8,
     userId: 2,
     rating: 4,
     comment: "Makes great coffee, but slightly noisy.",
@@ -65,7 +65,7 @@ export const reviews = [
   },
   {
     id: 9,
-    product_id: 15,
+    productId: 15,
     userId: 3,
     rating: 5,
     comment: "Best cookbook I've ever owned! Recipes are easy to follow.",
@@ -73,7 +73,7 @@ export const reviews = [
   },
   {
     id: 10,
-    product_id: 17,
+    productId: 17,
     userId: 4,
     rating: 4,
     comment: "Great gaming mouse, very responsive.",

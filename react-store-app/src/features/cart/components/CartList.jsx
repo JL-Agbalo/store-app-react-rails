@@ -23,7 +23,7 @@ function CartList({ cartData }) {
   return (
     <div className="space-y-1 px-2">
       {cartItems.map((cartItem) => (
-        <CartItem key={cartItem.product_id} item={cartItem} />
+        <CartItem key={cartItem.productId} item={cartItem} />
       ))}
     </div>
   );

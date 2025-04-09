@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import StarRating from "../../../shared/components/StarRating";
+import { getReviewsWithUser } from "../../../features/products/services/reviewService";
+function ReviewSection({ productId }) {
+  const [reviewsData, setReviews] = useState([]);
+  const [looding, setLoading] = useState(false);
 
-function ReviewSection({ reviews }) {
+  useEffect(() => {
+    const fetchReviews = async () => {
+      setLoading(true);
+      try {
+        const data = getReviewsWithUser(productId);
+        setReviews(data);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchReviews();
+  }, [productId]);
+  console.log("reviewsData", reviewsData);
   return (
     <div className="mt-20 border-t border-gray-100 pt-10">
-      {reviews?.length > 0 ? (
+      {reviewsData?.length > 0 ? (
         <div className="grid gap-8">
-          {reviews.map((review) => (
+          {reviewsData.map((review) => (
             <div key={review.id} className="border-b border-gray-100 pb-8">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center flex-shrink-0">

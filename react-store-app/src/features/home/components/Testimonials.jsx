@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getTestimonials } from "../../../shared/services/testimonialsService";
 function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -15,6 +15,7 @@ function Testimonials() {
     };
     fetchProducts();
   }, []);
+
   return (
     <div className="mx-auto px-6 py-10 max-w-7xl">
       <div className="text-center mb-12">

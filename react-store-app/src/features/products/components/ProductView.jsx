@@ -10,7 +10,7 @@ import ReviewSection from "./ReviewSection";
 function ProductView({ product, loading }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [quantity, setQuantity] = useState(1);
-
+  console.log("product", product);
   useEffect(() => {
     if (product) {
       const primaryImage = product.images?.find(
@@ -177,7 +177,7 @@ function ProductView({ product, loading }) {
         </div>
       </div>
 
-      <ReviewSection reviews={product.reviews} />
+      <ReviewSection productId={product.id} />
     </div>
   );
 }

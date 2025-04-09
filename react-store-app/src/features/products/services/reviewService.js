@@ -1,8 +1,8 @@
 import { reviews } from "../data/reviewsData";
 import { getUserInfoWithAvatar } from "../../auth/services/userService";
 
-const getReviewsByProductId = (productId) => {
-  return reviews.filter((review) => review.product_id === parseInt(productId));
+export const getReviewsByProductId = (productId) => {
+  return reviews.filter((review) => review.productId === parseInt(productId));
 };
 
 export const getReviewsWithUser = (productId) => {
