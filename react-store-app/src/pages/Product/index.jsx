@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import ProductView from "../../features/products/components/ProductView";
 import { getProductById } from "../../features/products/services/productService";
@@ -26,12 +26,18 @@ function Product() {
   console.log("product", product);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <ProductView product={product} loading={loading} />
-      <RelatedProducts
-        categoryId={product?.categoryId}
-        productId={product?.id}
-        loading={loading}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProductView product={product} loading={loading} />
+      </Suspense>
+      {product && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <RelatedProducts
+            categoryId={product.categoryId}
+            productId={product.id}
+            loading={loading}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

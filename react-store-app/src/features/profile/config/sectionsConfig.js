@@ -1,33 +1,33 @@
-import Profile from "../sections/ProfileSection/Profile";
-import Account from "../sections/AccountSection/Account";
-import CardAndBank from "../sections/CardAndBankSection/CardAndBank";
-import OrderHistory from "../sections/OrderHistorySection/OrderHistory";
-import Notifications from "../sections/NotificationSection/Notifications";
+import { lazy } from "react";
 
 export const sections = {
   profile: {
     id: "profile",
     label: "Profile",
-    component: Profile,
+    component: lazy(() => import("../sections/ProfileSection/Profile")),
   },
   account: {
     id: "account",
     label: "Account",
-    component: Account,
+    component: lazy(() => import("../sections/AccountSection/Account")),
   },
   payment: {
     id: "payment",
     label: "Cards & Bank Accounts",
-    component: CardAndBank,
+    component: lazy(() => import("../sections/CardAndBankSection/CardAndBank")),
   },
   orderHistory: {
     id: "orderHistory",
     label: "Order History",
-    component: OrderHistory,
+    component: lazy(() =>
+      import("../sections/OrderHistorySection/OrderHistory")
+    ),
   },
-  Notifications: {
+  notifications: {
     id: "notifications",
     label: "Notifications",
-    component: Notifications,
+    component: lazy(() =>
+      import("../sections/NotificationSection/Notifications")
+    ),
   },
 };

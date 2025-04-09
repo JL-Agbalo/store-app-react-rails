@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { ArrowDown } from "../../shared/components/Icons/ProfileIcons";
 import Sidebar from "../../features/profile/Sidebar";
 import { sections } from "../../features/profile/config/sectionsConfig";
@@ -66,7 +66,9 @@ function Profile({ userId = 1 }) {
 
           <div className="flex-1">
             <div className="bg-white rounded-lg shadow-md p-3">
-              <ActiveComponent user={userData} />
+              <Suspense fallback={<div>Loading section...</div>}>
+                <ActiveComponent user={userData} />
+              </Suspense>
             </div>
           </div>
         </div>

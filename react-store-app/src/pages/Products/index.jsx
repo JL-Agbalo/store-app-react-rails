@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import ProductGrid from "../../features/products/components/ProductGrid";
 import ProductFilter from "../../features/products/components/ProductFilter";
 import { getProductsByCategoryId } from "../../features/products/services/productService";
 
-function ProductCatalog() {
+function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(1);
@@ -33,9 +33,11 @@ function ProductCatalog() {
         />
       </div>
 
-      <ProductGrid products={products} loading={loading} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProductGrid products={products} loading={loading} />
+      </Suspense>
     </div>
   );
 }
 
-export default ProductCatalog;
+export default Products;
