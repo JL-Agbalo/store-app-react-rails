@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "../../../../shared/components/Avatar";
 import { userNavLinks } from "../../config/navigation";
+import { Logout } from "../../../../shared/components/icons/NavigationIcons";
 
 function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -59,11 +60,11 @@ function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
               </Link>
             )
           )}
-
           <button
             onClick={() => setIsAuthenticated(false)}
-            className="w-full text-left px-4 py-2 hover:bg-gray-200 flex items-center"
+            className="w-full text-left px-4 py-2 hover:bg-gray-200 flex items-center rounded-b-lg "
           >
+            <Logout className="mr-2" />
             Logout
           </button>
         </div>

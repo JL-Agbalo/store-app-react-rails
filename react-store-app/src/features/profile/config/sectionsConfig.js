@@ -2,7 +2,7 @@ import Profile from "../sections/ProfileSection/Profile";
 import Account from "../sections/AccountSection/Account";
 import CardAndBank from "../sections/CardAndBankSection/CardAndBank";
 import OrderHistory from "../sections/OrderHistorySection/OrderHistory";
-import Notification from "../sections/NotificationSection/NotificationSettings";
+import Notifications from "../sections/NotificationSection/Notifications";
 
 export const sections = {
   profile: {
@@ -25,9 +25,9 @@ export const sections = {
     label: "Order History",
     component: OrderHistory,
   },
-  Notification: {
+  Notifications: {
     id: "notifications",
     label: "Notifications",
-    component: Notification,
+    component: Notifications,
   },
 };

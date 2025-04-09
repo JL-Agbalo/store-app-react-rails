@@ -1,7 +1,6 @@
 import React from "react";
 
 function PaymentInformation({ paymentMethod, setPaymentMethod }) {
-  console.log("Payment Information Props:", paymentMethod);
   return (
     <div className="space-y-6">
       <h3 className="text-xl font-semibold">Payment Information</h3>
@@ -11,7 +10,7 @@ function PaymentInformation({ paymentMethod, setPaymentMethod }) {
           Select Payment Method
         </label>
         <div className="flex gap-4 flex-wrap">
-          <label className="flex items-center p-2 border rounded-lg cursor-pointer hover:border-black transition-colors">
+          <label className="flex items-center p-2 cursor-pointer hover:border-black transition-colors">
             <input
               type="radio"
               name="paymentMethod"
@@ -22,7 +21,7 @@ function PaymentInformation({ paymentMethod, setPaymentMethod }) {
             />
             <span>Card Payment</span>
           </label>
-          <label className="flex items-center p-2 border rounded-lg cursor-pointer hover:border-black transition-colors">
+          <label className="flex items-center p-2 cursor-pointer hover:border-black transition-colors">
             <input
               type="radio"
               name="paymentMethod"
@@ -33,7 +32,7 @@ function PaymentInformation({ paymentMethod, setPaymentMethod }) {
             />
             <span>Cash on Delivery</span>
           </label>
-          <label className="flex items-center p-2 border rounded-lg cursor-pointer hover:border-black transition-colors">
+          <label className="flex items-center p-2 cursor-pointer hover:border-black transition-colors">
             <input
               type="radio"
               name="paymentMethod"
@@ -44,7 +43,7 @@ function PaymentInformation({ paymentMethod, setPaymentMethod }) {
             />
             <span>Paypal</span>
           </label>
-          <label className="flex items-center p-2 border rounded-lg cursor-pointer hover:border-black transition-colors">
+          <label className="flex items-center p-2 cursor-pointer hover:border-black transition-colors">
             <input
               type="radio"
               name="paymentMethod"
@@ -67,7 +66,7 @@ function PaymentInformation({ paymentMethod, setPaymentMethod }) {
             </label>
             <input
               type="text"
-              className="w-full p-2 border rounded-lg"
+              className="w-full p-2 bg-gray-50"
               placeholder="1234 5678 9012 3456"
             />
           </div>
@@ -78,7 +77,7 @@ function PaymentInformation({ paymentMethod, setPaymentMethod }) {
               </label>
               <input
                 type="text"
-                className="w-full p-2 border rounded-lg"
+                className="w-full p-2 bg-gray-50"
                 placeholder="MM/YY"
               />
             </div>
@@ -88,7 +87,7 @@ function PaymentInformation({ paymentMethod, setPaymentMethod }) {
               </label>
               <input
                 type="text"
-                className="w-full p-2 border rounded-lg"
+                className="w-full p-2 bg-gray-50"
                 placeholder="123"
               />
             </div>
