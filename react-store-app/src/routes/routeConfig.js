@@ -1,15 +1,16 @@
 import { lazy } from "react";
 import React from "react";
 import { PUBLIC_ROUTES, AUTH_ROUTES } from "./routes";
+import { lazyImport } from "../utils/lazyImport";
 
 // Lazy load pages
-const Home = lazy(() => import("../pages/Home"));
-const SignIn = lazy(() => import("../pages/Auth/SignIn"));
-const SignUp = lazy(() => import("../pages/Auth/SignUp"));
-const Products = lazy(() => import("../pages/Products"));
-const Product = lazy(() => import("../pages/Product"));
-const Checkout = lazy(() => import("../pages/Checkout"));
-const Profile = lazy(() => import("../pages/Profile"));
+const Home = lazyImport(lazy(() => import("../pages/Home")));
+const SignIn = lazyImport(lazy(() => import("../pages/Auth/SignIn")));
+const SignUp = lazyImport(lazy(() => import("../pages/Auth/SignUp")));
+const Products = lazyImport(lazy(() => import("../pages/Products")));
+const Product = lazyImport(lazy(() => import("../pages/Product")));
+const Checkout = lazyImport(lazy(() => import("../pages/Checkout")));
+const Profile = lazyImport(lazy(() => import("../pages/Profile")));
 
 // Public routes (no auth required)
 export const publicRoutes = [

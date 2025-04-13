@@ -14,7 +14,7 @@ function MobileMenu({
   isAuthenticated,
   setIsAuthenticated,
   setIsCartOpen,
-  user,
+  currentUser,
 }) {
   if (!isOpen) return null;
 
@@ -29,12 +29,12 @@ function MobileMenu({
 
       <div className="p-4">
         <div className="space-y-4">
-          {isAuthenticated && user && (
+          {isAuthenticated && currentUser && (
             <UserProfileCard
-              firstName={user?.firstName}
-              lastName={user?.lastName}
-              email={user?.email}
-              image={user?.avatar_url}
+              firstName={currentUser?.firstName}
+              lastName={currentUser?.lastName}
+              email={currentUser?.email}
+              image={currentUser?.profile?.avatar}
             />
           )}
 

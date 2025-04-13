@@ -1,23 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {
+  getCurrentUser,
+  signInUser,
+  signOutUser,
+} from "../services/authService";
 
 export const useAuth = () => {
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const currentUser = getCurrentUser();
+    if (currentUser) {
+      setUser(currentUser);
+      setIsAuthenticated(true);
+    }
+    setLoading(false);
+  }, []);
+
+  const login = async (email, password) => {
+    try {
+      setLoading(true);
+      const userData = await signInUser(email, password);
+      setUser(userData);
+      setIsAuthenticated(true);
+      setError(null);
+      return userData;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const logout = () => {
+    signOutUser();
     setUser(null);
-    // Add logout logic here
+    setIsAuthenticated(false);
   };
 
   return {
     user,
-    isLoading,
+    loading,
     error,
-    setUser,
-    setIsLoading,
-    setError,
+    isAuthenticated,
+    login,
     logout,
-    isAuthenticated: true,
+    setUser,
+    setLoading,
+    setError,
   };
 };

@@ -6,26 +6,11 @@ import MobileMenu from "./MobileMenu";
 import Cart from "../../../cart/components/Cart";
 import { mainNavLinks } from "../../config/navigation";
 import { AUTH_ROUTES } from "../../../../routes/routes";
-import { getUserInfoWithAvatar } from "../../../auth/services/userService";
 
-function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
+function Navbar({ isAuthenticated = false, setIsAuthenticated, currentUser }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      setLoading(true);
-      try {
-        const data = getUserInfoWithAvatar(userId);
-        setUser(data);
-      } finally {
-        setLoading(false);
-      }
-    }
-  }, [isAuthenticated, userId]);
-
+  console.log("CurrentUser", currentUser);
   return (
     <>
       <nav className="bg-white text-black py-3 sticky top-0 shadow-md z-50">
@@ -67,7 +52,7 @@ function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
                 </button>
                 <div className="flex items-center">
                   <UserMenu
-                    user={user}
+                    currentUser={currentUser}
                     setIsAuthenticated={setIsAuthenticated}
                     setIsCartOpen={setIsCartOpen}
                   />
@@ -99,10 +84,10 @@ function Navbar({ isAuthenticated = false, setIsAuthenticated, userId }) {
         isAuthenticated={isAuthenticated}
         setIsAuthenticated={setIsAuthenticated}
         setIsCartOpen={setIsCartOpen}
-        user={user}
+        currentUser={currentUser}
       />
       <Cart
-        userId={user?.id}
+        currentUser={currentUser?.id}
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         setIsCartOpen={setIsCartOpen}

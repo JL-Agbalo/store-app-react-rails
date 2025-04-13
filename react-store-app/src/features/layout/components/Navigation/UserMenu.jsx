@@ -4,7 +4,7 @@ import Avatar from "../../../../shared/components/Avatar";
 import { userNavLinks } from "../../config/navigation";
 import { Logout } from "../../../../shared/components/icons/NavigationIcons";
 
-function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
+function UserMenu({ currentUser, setIsAuthenticated, setIsCartOpen }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
     <div className="relative">
@@ -13,7 +13,7 @@ function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
       >
         <Avatar
-          src={user?.avatar_url}
+          src={currentUser?.profile?.avatar}
           alt="User Avatar"
           hasNotification={true}
           className="w-8 h-8 rounded-full object-cover"
@@ -25,8 +25,10 @@ function UserMenu({ user, setIsAuthenticated, setIsCartOpen }) {
           <div className="p-3 border-b border-gray-200">
             <div className="flex items-center gap-3">
               <div className="flex flex-col">
-                <span className="font-medium">{`${user.firstName} ${user.lastName}`}</span>
-                <span className="text-xs text-gray-500">{user.email}</span>
+                <span className="font-medium">{`${currentUser.firstName} ${currentUser.lastName}`}</span>
+                <span className="text-xs text-gray-500">
+                  {currentUser.email}
+                </span>
               </div>
             </div>
           </div>
