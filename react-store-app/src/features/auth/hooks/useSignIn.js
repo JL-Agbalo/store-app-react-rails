@@ -8,13 +8,14 @@ export const useSignIn = () => {
   const navigate = useNavigate();
   const { login, setLoading } = useAuth();
 
-  const { register, handleSubmit, formState, setError, clearErrors } = useForm({
-    resolver: zodResolver(signInSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
+  const { register, handleSubmit, formState, setError, clearErrors, setValue } =
+    useForm({
+      resolver: zodResolver(signInSchema),
+      defaultValues: {
+        email: "",
+        password: "",
+      },
+    });
 
   const onSubmit = async (data) => {
     try {
@@ -50,5 +51,6 @@ export const useSignIn = () => {
     handleSubmit: handleSubmit(onSubmit),
     errors: formState.errors,
     isLoading: formState.isSubmitting,
+    setValue,
   };
 };

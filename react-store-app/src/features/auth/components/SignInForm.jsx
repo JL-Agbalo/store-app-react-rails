@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useSignIn } from "../hooks/useSignIn";
 import SocialMediaAuth from "./SocialMediaAuth";
 import {
@@ -7,21 +7,39 @@ import {
   Password,
   Eye,
   EyeOff,
+  Alert,
+  Check,
 } from "../../../shared/components/Icons/AuthIcons";
 
 const SignInForm = () => {
-  const { register, handleSubmit, errors, isLoading } = useSignIn();
+  const { register, handleSubmit, errors, isLoading, setValue } = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  console.log("location", location.state);
+
+  useEffect(() => {
+    if (location.state?.email) {
+      setValue("email", location.state.email);
+    }
+  }, [location.state, setValue]);
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+      {/* Success message from signup */}
+      {location.state?.message && (
+        <div className="p-3 mb-4 text-sm text-green-600 rounded-lg bg-green-50 border border-green-100">
+          <div className="flex items-center">
+            <Check className="w-4 h-4 mr-2 fill-current" />
+            {location.state.message}
+          </div>
+        </div>
+      )}
+
       {/* Form-level error display */}
       {errors.root && (
         <div className="p-3 mb-4 text-sm text-red-500 rounded-lg bg-red-50 border border-red-100">
           <div className="flex items-center">
-            <svg className="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-            </svg>
+            <Alert className="w-4 h-4 mr-2 fill-current" />
             {errors.root.message}
           </div>
         </div>
@@ -48,16 +66,12 @@ const SignInForm = () => {
             />
           </div>
           {errors.email && (
-            <p className="text-red-500 text-xs mt-1 flex items-center">
-              <svg
-                className="w-3 h-3 mr-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-              </svg>
-              {errors.email.message}
-            </p>
+            <div className="flex items-start space-x-2 mt-1.5">
+              <Alert className="w-3 h-3 text-red-500 mt-0.5 flex-shrink-0" />
+              <p className="text-red-500 text-[11px] leading-normal">
+                {errors.email.message}
+              </p>
+            </div>
           )}
         </div>
 
@@ -93,16 +107,12 @@ const SignInForm = () => {
             </button>
           </div>
           {errors.password && (
-            <p className="text-red-500 text-xs mt-1 flex items-center">
-              <svg
-                className="w-3 h-3 mr-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-              </svg>
-              {errors.password.message}
-            </p>
+            <div className="flex items-start space-x-2 mt-1.5">
+              <Alert className="w-3 h-3 text-red-500 mt-0.5 flex-shrink-0" />
+              <p className="text-red-500 text-[11px] leading-normal">
+                {errors.password.message}
+              </p>
+            </div>
           )}
         </div>
 

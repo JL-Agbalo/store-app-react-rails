@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from "../../features/auth/components/SignInForm";
+import SignInForm from "../../features/auth/components/SignInForm";
 function SignIn() {
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
@@ -13,7 +13,7 @@ function SignIn() {
             Please enter your details
           </p>
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <LoginForm />
+            <SignInForm />
           </div>
         </div>
       </div>

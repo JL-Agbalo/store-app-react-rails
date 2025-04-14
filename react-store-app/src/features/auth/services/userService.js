@@ -1,5 +1,5 @@
 import { users } from "../data/usersData";
-import { profiles } from "../data//profilesData";
+import { profiles } from "../data/profilesData";
 
 // Get user profile by ID
 export const getUserProfileById = (userId) => {

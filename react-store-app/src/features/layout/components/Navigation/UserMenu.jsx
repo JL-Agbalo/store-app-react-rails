@@ -13,7 +13,7 @@ function UserMenu({ currentUser, setIsCartOpen }) {
   const handleLogout = () => {
     logout();
     setIsDropdownOpen(false);
-    navigate("/");
+    navigate("/signin");
   };
 
   return (

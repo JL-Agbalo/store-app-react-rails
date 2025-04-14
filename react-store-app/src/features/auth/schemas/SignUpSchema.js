@@ -23,20 +23,20 @@ export const signUpSchema = z
       .trim()
       .toLowerCase(),
 
-    password: z
-      .string()
-      .min(8, { message: "Password must be at least 8 characters" })
-      .regex(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
-        {
-          message:
-            "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
-        }
-      ),
+    // password: z
+    //   .string()
+    //   .min(8, { message: "Password must be at least 8 characters" })
+    //   .regex(
+    //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+    //     {
+    //       message:
+    //         "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+    //     }
+    //   ),
 
-    confirmPassword: z
-      .string()
-      .min(1, { message: "Password confirmation is required" }),
+    // confirmPassword: z
+    //   .string()
+    //   .min(1, { message: "Password confirmation is required" }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",

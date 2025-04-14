@@ -23,7 +23,7 @@ function MobileMenu({
   const handleLogout = () => {
     logout();
     onClose();
-    navigate("/");
+    navigate("/signin");
   };
 
   if (!isOpen) return null;

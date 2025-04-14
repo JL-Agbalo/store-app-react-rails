@@ -36,10 +36,19 @@ export const useAuth = () => {
     }
   };
 
-  const logout = () => {
-    signOutUser();
-    setUser(null);
-    setIsAuthenticated(false);
+  const logout = async () => {
+    try {
+      setLoading(true);
+      await signOutUser();
+      setUser(null);
+      setIsAuthenticated(false);
+      return true;
+    } catch (error) {
+      setError(error.message);
+      return false;
+    } finally {
+      setLoading(false);
+    }
   };
 
   return {
