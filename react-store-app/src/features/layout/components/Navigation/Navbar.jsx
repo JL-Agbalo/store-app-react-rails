@@ -10,7 +10,6 @@ import { AUTH_ROUTES } from "../../../../routes/routes";
 function Navbar({ isAuthenticated = false, setIsAuthenticated, currentUser }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  console.log("CurrentUser", currentUser);
   return (
     <>
       <nav className="bg-white text-black py-3 sticky top-0 shadow-md z-50">

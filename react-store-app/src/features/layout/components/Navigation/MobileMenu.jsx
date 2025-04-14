@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Close,
   Logout,
@@ -7,6 +7,7 @@ import {
 import { mainNavLinks, userNavLinks } from "../../config/navigation";
 import UserProfileCard from "../../../../shared/components/UserProfileCard";
 import { AUTH_ROUTES } from "../../../../routes/routes";
+import { useAuth } from "../../../auth/hooks/useAuth";
 
 function MobileMenu({
   isOpen,
@@ -16,6 +17,15 @@ function MobileMenu({
   setIsCartOpen,
   currentUser,
 }) {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    onClose();
+    navigate("/");
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -68,7 +78,10 @@ function MobileMenu({
                 }}
                 className="block w-full text-left py-2"
               >
-                <Logout className="w-5 h-5 inline mr-3" />
+                <Logout
+                  onClick={handleLogout}
+                  className="w-5 h-5 inline mr-3"
+                />
                 Logout
               </button>
             </>

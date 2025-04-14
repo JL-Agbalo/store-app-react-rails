@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Avatar from "../../../../shared/components/Avatar";
 import { userNavLinks } from "../../config/navigation";
 import { Logout } from "../../../../shared/components/icons/NavigationIcons";
+import { useAuth } from "../../../auth/hooks/useAuth";
 
-function UserMenu({ currentUser, setIsAuthenticated, setIsCartOpen }) {
+function UserMenu({ currentUser, setIsCartOpen }) {
+  const { logout } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    setIsDropdownOpen(false);
+    navigate("/");
+  };
+
   return (
     <div className="relative">
       <button
@@ -63,7 +73,7 @@ function UserMenu({ currentUser, setIsAuthenticated, setIsCartOpen }) {
             )
           )}
           <button
-            onClick={() => setIsAuthenticated(false)}
+            onClick={handleLogout}
             className="w-full text-left px-4 py-2 hover:bg-gray-200 flex items-center rounded-b-lg "
           >
             <Logout className="mr-2" />

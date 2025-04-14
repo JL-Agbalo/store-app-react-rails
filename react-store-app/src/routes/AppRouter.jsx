@@ -5,21 +5,13 @@ import { publicRoutes, privateRoutes, commonRoutes } from "./routeConfig";
 import MainLayout from "../features/layout/components/Layout/MainLayout";
 import AuthLayout from "../features/layout/components/Layout/AuthLayout";
 
-function AppRouter({ isAuthenticated, setIsAuthenticated, currentUser }) {
+function AppRouter() {
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {/* Common Pages - Available to all */}
-          <Route
-            element={
-              <MainLayout
-                isAuthenticated={isAuthenticated}
-                currentUser={currentUser}
-                setIsAuthenticated={setIsAuthenticated}
-              />
-            }
-          >
+          <Route element={<MainLayout />}>
             {commonRoutes.map((route) => (
               <Route
                 key={route.path}
@@ -43,16 +35,8 @@ function AppRouter({ isAuthenticated, setIsAuthenticated, currentUser }) {
           </Route>
 
           {/* Protected Pages */}
-          <Route element={<PrivateRoutes isAuthenticated={isAuthenticated} />}>
-            <Route
-              element={
-                <MainLayout
-                  isAuthenticated={isAuthenticated}
-                  currentUser={currentUser}
-                  setIsAuthenticated={setIsAuthenticated}
-                />
-              }
-            >
+          <Route element={<PrivateRoutes />}>
+            <Route element={<MainLayout />}>
               {privateRoutes.map((route) => (
                 <Route
                   key={route.path}
@@ -62,9 +46,6 @@ function AppRouter({ isAuthenticated, setIsAuthenticated, currentUser }) {
               ))}
             </Route>
           </Route>
-
-          {/* Fallback for undefined routes */}
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
       </Suspense>
     </BrowserRouter>
