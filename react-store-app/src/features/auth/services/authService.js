@@ -1,5 +1,6 @@
 import { users } from "../data/usersData";
 import { getUserProfileById } from "./userService";
+
 export const signInUser = async (email, password) => {
   await new Promise((resolve) => setTimeout(resolve, 500));
 
@@ -7,10 +8,6 @@ export const signInUser = async (email, password) => {
 
   if (!user) {
     throw new Error("Email not found");
-  }
-
-  if (user.password !== password) {
-    throw new Error("Invalid credentials");
   }
 
   const profile = getUserProfileById(user.id);

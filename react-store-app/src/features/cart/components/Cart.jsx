@@ -5,21 +5,22 @@ import { getCartByUserId } from "../../cart/services/cartService";
 import CartTotal from "./CartTotal";
 import CartList from "./CartList";
 
-function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
+function Cart({ isOpen, onClose, setIsCartOpen, currentUserId }) {
   const navigate = useNavigate();
   const [cartData, setCartData] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const handleCheckout = () => {
     setIsCartOpen(false);
     navigate("/checkout");
   };
 
+  console.log("currentUserId", currentUserId);
+
   useEffect(() => {
     const fetchCart = async () => {
       setLoading(true);
       try {
-        const data = await getCartByUserId(userId);
+        const data = await getCartByUserId(currentUserId);
         setCartData(data);
       } catch (error) {
         console.error("Error fetching cart data:", error);
@@ -28,10 +29,11 @@ function Cart({ isOpen, onClose, setIsCartOpen, userId }) {
       }
     };
 
-    if (userId && isOpen && !cartData) {
+    if (currentUserId && isOpen && !cartData) {
       fetchCart();
     }
-  }, [userId, isOpen, cartData]);
+  }, [currentUserId, isOpen, cartData]);
+  console.log("cartData", cartData);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Shopping Cart">

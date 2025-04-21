@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Bag } from "../../../../shared/components/icons/NavigationIcons";
 import UserMenu from "./UserMenu";
 import MobileMenu from "./MobileMenu";
-import Cart from "../../../cart/components/Cart";
 import { mainNavLinks } from "../../config/navigation";
 import { AUTH_ROUTES } from "../../../../routes/routes";
 
+const Cart = lazy(() => import("../../../cart/components/Cart"));
+
 function Navbar({ isAuthenticated = false, setIsAuthenticated, currentUser }) {
+  console.log("currentUser", currentUser);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   return (
@@ -85,12 +87,16 @@ function Navbar({ isAuthenticated = false, setIsAuthenticated, currentUser }) {
         setIsCartOpen={setIsCartOpen}
         currentUser={currentUser}
       />
-      <Cart
-        currentUser={currentUser?.id}
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        setIsCartOpen={setIsCartOpen}
-      />
+      {isCartOpen && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Cart
+            currentUserId={currentUser?.id}
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
+            setIsCartOpen={setIsCartOpen}
+          />
+        </Suspense>
+      )}
     </>
   );
 }
