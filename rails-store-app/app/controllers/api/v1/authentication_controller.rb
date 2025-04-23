@@ -9,8 +9,14 @@ module Api
             token = JwtService.encode(user_id: user.id)
             render json: { 
               status: 'success',
-              token: token, 
-              email: user.email 
+              token: token,
+              expires_in: JwtService::EXPIRATION_TIME,
+              user: {
+                id: user.id,
+                email: user.email,
+                first_name: user.first_name,
+                last_name: user.last_name
+              }
             }, status: :ok
           else
             render json: { 
@@ -19,6 +25,14 @@ module Api
             }, status: :unauthorized
           end
         end
+
+        def signout
+          render json: {
+            status: 'success',
+            message: 'Successfully signed out'
+          }, status: :ok
+        end
+        
       end
     end
   end

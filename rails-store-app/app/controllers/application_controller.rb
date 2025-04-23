@@ -7,14 +7,19 @@ class ApplicationController < ActionController::API
     def authenticate_request
       header = request.headers['Authorization']
       token = header.split(' ').last if header
-      
-      if token
-        decoded = JwtService.decode(token)
-        @current_user = User.find(decoded['user_id'])
-      else
-        render json: { error: 'Unauthorized' }, status: :unauthorized
+  
+      begin
+        if token
+          decoded = JwtService.decode(token)
+          @current_user = User.find(decoded['user_id'])
+        else
+          render json: { status: 'error', error: 'No token provided' }, status: :unauthorized
+        end
+      rescue => e
+        render json: { 
+          status: 'error', 
+          error: e.message == 'Token has expired' ? 'Token has expired' : 'Invalid token'
+        }, status: :unauthorized
       end
-    rescue ActiveRecord::RecordNotFound
-      render json: { error: 'Unauthorized' }, status: :unauthorized
     end
   end
