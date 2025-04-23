@@ -4,19 +4,19 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "../schemas/SignInSchema";
 import { useAuth } from "./useAuth";
+import { signInUser } from "../../../services/v1/authService";
 
 export const useSignIn = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const { login } = useAuth();
-  const [isLoading, setIsLoading] = useState(false);
+  const { setUser } = useAuth();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
-    setValue,
   } = useForm({
     resolver: zodResolver(signInSchema),
   });
@@ -24,28 +24,19 @@ export const useSignIn = () => {
   const onSubmit = async (data) => {
     try {
       setIsLoading(true);
-      await login(data.email, data.password);
+      setError(null);
 
-      // Navigate to the page user tried to visit or home
-      const from = location.state?.from?.pathname || "/";
-      navigate(from, { replace: true });
-    } catch (err) {
-      if (err.message === "Email not found") {
-        setError("email", {
-          type: "manual",
-          message: "No account found with this email",
-        });
-      } else if (err.message === "Invalid credentials") {
-        setError("password", {
-          type: "manual",
-          message: "Invalid password",
-        });
-      } else {
-        setError("root", {
-          type: "manual",
-          message: "An unexpected error occurred. Please try again.",
-        });
+      const response = await signInUser(data.email, data.password);
+
+      if (response.user) {
+        setUser(response.user);
+
+        // Redirect to the previous page or home
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
       }
+    } catch (err) {
+      setError(err.message || "Failed to sign in");
     } finally {
       setIsLoading(false);
     }
@@ -56,6 +47,6 @@ export const useSignIn = () => {
     handleSubmit: handleSubmit(onSubmit),
     errors,
     isLoading,
-    setValue,
+    error,
   };
 };

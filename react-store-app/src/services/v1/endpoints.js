@@ -1,9 +1,10 @@
-export const API_URL = "http://localhost:3001/api/v1";
+const API_BASE_URL = "http://localhost:3000/api/v1";
 
 export const ENDPOINTS = {
   AUTH: {
-    SIGNIN: "/auth/signin",
-    SIGNUP: "/auth/signup",
-    ME: "/auth/me",
+    SIGNIN: `${API_BASE_URL}/signin`,
+    SIGNUP: `${API_BASE_URL}/signup`,
+    SIGNOUT: `${API_BASE_URL}/signout`,
+    ME: `${API_BASE_URL}/me`,
   },
 };
