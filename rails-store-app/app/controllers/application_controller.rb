@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::API
+    include ActionController::Cookies
     before_action :authenticate_request
     attr_reader :current_user
   
     private
   
     def authenticate_request
-      header = request.headers['Authorization']
-      token = header.split(' ').last if header
+      token = cookies.signed[:jwt]
   
       begin
         if token
@@ -22,4 +22,4 @@ class ApplicationController < ActionController::API
         }, status: :unauthorized
       end
     end
-  end
+end
