@@ -10,18 +10,7 @@ function AppRouter() {
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {/* Common Pages - Available to all */}
-          <Route element={<MainLayout />}>
-            {commonRoutes.map((route) => (
-              <Route
-                key={route.path}
-                path={route.path}
-                element={route.element}
-              />
-            ))}
-          </Route>
-
-          {/* Public Pages */}
+          {/* Auth Routes (signin/signup) */}
           <Route element={<PublicRoutes />}>
             <Route element={<AuthLayout />}>
               {publicRoutes.map((route) => (
@@ -34,7 +23,7 @@ function AppRouter() {
             </Route>
           </Route>
 
-          {/* Protected Pages */}
+          {/* Protected Routes (profile only) */}
           <Route element={<PrivateRoutes />}>
             <Route element={<MainLayout />}>
               {privateRoutes.map((route) => (
@@ -45,6 +34,17 @@ function AppRouter() {
                 />
               ))}
             </Route>
+          </Route>
+
+          {/* Common Routes (home, products, checkout) */}
+          <Route element={<MainLayout />}>
+            {commonRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.element}
+              />
+            ))}
           </Route>
         </Routes>
       </Suspense>

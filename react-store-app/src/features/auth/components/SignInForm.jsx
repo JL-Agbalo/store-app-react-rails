@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useSignIn } from "../hooks/useSignIn";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import useSignIn from "../hooks/useSignIn";
 import SocialMediaAuth from "./SocialMediaAuth";
 import {
   Email,
@@ -12,16 +12,8 @@ import {
 } from "../../../shared/components/Icons/AuthIcons";
 
 const SignInForm = () => {
-  const { register, handleSubmit, errors, isLoading, setValue } = useSignIn();
+  const { register, handleSubmit, errors, isLoading } = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
-  const location = useLocation();
-  console.log("location", location.state);
-
-  useEffect(() => {
-    if (location.state?.email) {
-      setValue("email", location.state.email);
-    }
-  }, [location.state, setValue]);
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>

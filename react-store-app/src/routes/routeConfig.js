@@ -26,14 +26,10 @@ export const publicRoutes = [
 
 // Private routes (auth required)
 export const privateRoutes = [
-  {
-    path: PUBLIC_ROUTES.CHECKOUT,
-    element: React.createElement(Checkout),
-  },
-  {
-    path: AUTH_ROUTES.PROFILE,
-    element: React.createElement(Profile),
-  },
+  // {
+  //   path: AUTH_ROUTES.PROFILE,
+  //   element: React.createElement(Profile),
+  // },
 ];
 
 // Common routes (accessible to all)
@@ -42,12 +38,16 @@ export const commonRoutes = [
     path: PUBLIC_ROUTES.HOME,
     element: React.createElement(Home),
   },
-  {
-    path: PUBLIC_ROUTES.PRODUCTS,
-    element: React.createElement(Products),
-  },
-  {
-    path: PUBLIC_ROUTES.PRODUCT_DETAIL,
-    element: React.createElement(Product),
-  },
+  // {
+  //   path: PUBLIC_ROUTES.PRODUCTS,
+  //   element: React.createElement(Products),
+  // },
+  // {
+  //   path: PUBLIC_ROUTES.PRODUCT_DETAIL,
+  //   element: React.createElement(Product),
+  // },
+  // {
+  //   path: PUBLIC_ROUTES.CHECKOUT,
+  //   element: React.createElement(Checkout),
+  // },
 ];

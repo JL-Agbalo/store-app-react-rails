@@ -25,6 +25,7 @@ export const signInUser = async (email, password) => {
 };
 
 export const getCurrentUser = async () => {
+  console.log("Fetching current user...");
   try {
     const response = await fetch(ENDPOINTS.AUTH.ME, {
       credentials: "include",
