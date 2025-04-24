@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Avatar from "../../../../shared/components/Avatar";
 import { userNavLinks } from "../../config/navigation";
-import { Logout } from "../../../../shared/components/icons/NavigationIcons";
+import { Logout } from "../../../../shared/components/Icons/NavigationIcons";
 import { useAuth } from "../../../auth/hooks/useAuth";
 
 function UserMenu({ currentUser, setIsCartOpen }) {
@@ -10,10 +10,16 @@ function UserMenu({ currentUser, setIsCartOpen }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
-    setIsDropdownOpen(false);
-    navigate("/signin");
+  const handleLogout = async () => {
+    try {
+      const success = await logout();
+      if (success) {
+        setIsDropdownOpen(false);
+        navigate("/signin");
+      }
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
 
   return (
@@ -35,7 +41,7 @@ function UserMenu({ currentUser, setIsCartOpen }) {
           <div className="p-3 border-b border-gray-200">
             <div className="flex items-center gap-3">
               <div className="flex flex-col">
-                <span className="font-medium">{`${currentUser.firstName} ${currentUser.lastName}`}</span>
+                <span className="font-medium">{`${currentUser.first_name} ${currentUser.last_name}`}</span>
                 <span className="text-xs text-gray-500">
                   {currentUser.email}
                 </span>

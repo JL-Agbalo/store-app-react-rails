@@ -9,14 +9,14 @@ module Api
         if user.save
           token = JwtService.encode(user_id: user.id)
           
-          cookies.signed[:jwt] = {
+          cookies[:jwt] = {
             value: token,
             httponly: true,
             secure: Rails.env.production?,
             same_site: :strict,
             expires: Time.now + JwtService::EXPIRATION_TIME
           }
-
+      
           render json: {
             status: 'success',
             message: 'User created successfully',
@@ -34,6 +34,7 @@ module Api
           }, status: :unprocessable_entity
         end
       end
+      
 
 			def me
 				render json: {
@@ -48,10 +49,11 @@ module Api
 			end
 
       private
-
+      
       def user_params
-        params.require(:user).permit(:email, :password, :first_name, :last_name)
+        params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
       end
+
     end
   end
 end

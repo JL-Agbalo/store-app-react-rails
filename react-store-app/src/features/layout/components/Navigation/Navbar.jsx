@@ -1,6 +1,6 @@
 import React, { useState, Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Bag } from "../../../../shared/components/icons/NavigationIcons";
+import { Menu, Bag } from "../../../../shared/components/Icons/NavigationIcons";
 import UserMenu from "./UserMenu";
 import MobileMenu from "./MobileMenu";
 import { mainNavLinks } from "../../config/navigation";
@@ -13,7 +13,7 @@ function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-
+  console.log("user", user);
   return (
     <>
       <nav className="bg-white text-black py-3 sticky top-0 shadow-md z-50">

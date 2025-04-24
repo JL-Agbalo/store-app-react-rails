@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_23_115455) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", limit: 128
-    t.string "last_name", limit: 128
+    t.string "first_name", limit: 128, null: false
+    t.string "last_name", limit: 128, null: false
     t.string "email", null: false
     t.string "password_digest", null: false
     t.datetime "created_at", null: false

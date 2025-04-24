@@ -69,7 +69,7 @@ export const getOrderDetailsByOrderId = (orderId) => {
       totalAmount: order.total_price,
     },
     userData: {
-      name: `${user?.firstName || "Unknown"} ${user?.lastName || ""}`,
+      name: `${user?.first_name || "Unknown"} ${user?.last_name || ""}`,
       email: user?.email || "Unknown",
       phone: user?.phone || "Unknown",
       address: `${user?.address || "Unknown"}, ${user?.city || ""}, ${

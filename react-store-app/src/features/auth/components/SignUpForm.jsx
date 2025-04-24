@@ -25,22 +25,22 @@ function SignUpForm() {
           </label>
           <div
             className={`flex items-center border rounded-lg p-2.5 focus-within:ring-2 focus-within:ring-black/5 transition-all duration-200 hover:border-gray-400 ${
-              errors.firstName ? "border-red-500" : "border-gray-300"
+              errors.first_name ? "border-red-500" : "border-gray-300"
             }`}
           >
             <input
               type="text"
-              {...register("firstName")}
+              {...register("first_name")}
               className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-sm"
               placeholder="Enter your first name"
               disabled={isLoading}
             />
           </div>
-          {errors.firstName && (
+          {errors.first_name && (
             <div className="flex items-start space-x-2 mt-1.5">
               <Alert className="w-3 h-3 text-red-500 mt-0.5 flex-shrink-0" />
               <p className="text-red-500 text-[11px] leading-normal">
-                {errors.firstName.message}
+                {errors.first_name.message}
               </p>
             </div>
           )}
@@ -53,22 +53,22 @@ function SignUpForm() {
           </label>
           <div
             className={`flex items-center border rounded-lg p-2.5 focus-within:ring-2 focus-within:ring-black/5 transition-all duration-200 hover:border-gray-400 ${
-              errors.lastName ? "border-red-500" : "border-gray-300"
+              errors.last_name ? "border-red-500" : "border-gray-300"
             }`}
           >
             <input
               type="text"
-              {...register("lastName")}
+              {...register("last_name")}
               className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-sm"
               placeholder="Enter your last name"
               disabled={isLoading}
             />
           </div>
-          {errors.lastName && (
+          {errors.last_name && (
             <div className="flex items-start space-x-2 mt-1.5">
               <Alert className="w-3 h-3 text-red-500 mt-0.5 flex-shrink-0" />
               <p className="text-red-500 text-[11px] leading-normal">
-                {errors.lastName.message}
+                {errors.last_name.message}
               </p>
             </div>
           )}

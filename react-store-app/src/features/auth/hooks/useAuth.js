@@ -27,8 +27,10 @@ export const useAuth = () => {
     try {
       await signOutUser();
       setUser(null);
+      return true;
     } catch (error) {
       console.error("Logout failed:", error);
+      return false;
     }
   };
 

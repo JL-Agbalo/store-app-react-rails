@@ -19,8 +19,8 @@ export const getUserBasicInfo = (userId) => {
 
   return {
     id: userId,
-    firstName: user.firstName,
-    lastName: user.lastName,
+    first_name: user.first_name,
+    last_name: user.last_name,
     email: user.email,
   };
 };
@@ -44,8 +44,8 @@ export const getUserDetailsById = (userId) => {
   if (!profile) return null;
   return {
     id: userId,
-    firstName: basicInfo.firstName,
-    lastName: basicInfo.lastName,
+    first_name: basicInfo.first_name,
+    last_name: basicInfo.last_name,
     email: basicInfo?.email,
     phone: profile?.phone || null,
     address: profile?.address || null,
@@ -66,8 +66,8 @@ export const getUserDataById = (userId) => {
 
   return {
     id: userId,
-    firstName: user.firstName,
-    lastName: user.lastName,
+    first_name: user.first_name,
+    last_name: user.last_name,
     email: user.email,
     phone: profile.phone || null,
     address: profile.address || null,

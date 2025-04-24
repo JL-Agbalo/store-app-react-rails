@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import headerItemBanner from "../../../assets/images/banners/headerItemBanner.png";
-import { RightArrow } from "../../../shared/components/icons/CommonIcons";
+import { RightArrow } from "../../../shared/components/Icons/CommonIcons";
 
 function Hero() {
   return (

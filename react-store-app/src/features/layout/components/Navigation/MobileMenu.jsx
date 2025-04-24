@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   Close,
   Logout,
-} from "../../../../shared/components/icons/NavigationIcons";
+} from "../../../../shared/components/Icons/NavigationIcons";
 import { mainNavLinks, userNavLinks } from "../../config/navigation";
 import UserProfileCard from "../../../../shared/components/UserProfileCard";
 import { AUTH_ROUTES } from "../../../../routes/routes";
@@ -41,8 +41,8 @@ function MobileMenu({
         <div className="space-y-4">
           {isAuthenticated && currentUser && (
             <UserProfileCard
-              firstName={currentUser?.firstName}
-              lastName={currentUser?.lastName}
+              first_name={currentUser?.first_name}
+              last_name={currentUser?.last_name}
               email={currentUser?.email}
               image={currentUser?.profile?.avatar}
             />

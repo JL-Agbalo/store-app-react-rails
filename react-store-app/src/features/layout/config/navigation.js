@@ -8,7 +8,7 @@ import {
   Help,
   Bell,
   Logout,
-} from "../../../shared/components/icons/NavigationIcons";
+} from "../../../shared/components/Icons/NavigationIcons";
 
 // Main navigation links (primary navigation)
 export const mainNavLinks = [

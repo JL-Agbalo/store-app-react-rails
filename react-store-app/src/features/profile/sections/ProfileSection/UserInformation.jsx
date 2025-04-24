@@ -3,8 +3,8 @@ import { Lock } from "../../../../shared/components/Icons/ProfileIcons";
 import Button from "../../../../shared/components/Button";
 function UserInformation({ user }) {
   const [formData, setFormData] = useState({
-    firstName: user.firstName,
-    lastName: user.lastName,
+    first_name: user.first_name,
+    last_name: user.last_name,
     phone: user.phone,
     email: user.email,
     address: user.address,
@@ -32,8 +32,8 @@ function UserInformation({ user }) {
           </label>
           <input
             type="text"
-            name="firstName"
-            value={formData.firstName}
+            name="first_name"
+            value={formData.first_name}
             onChange={handleChange}
             required
             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
@@ -44,8 +44,8 @@ function UserInformation({ user }) {
           <label className="block text-gray-700 mb-1">Last Name</label>
           <input
             type="text"
-            name="lastName"
-            value={formData.lastName}
+            name="last_name"
+            value={formData.last_name}
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
           />

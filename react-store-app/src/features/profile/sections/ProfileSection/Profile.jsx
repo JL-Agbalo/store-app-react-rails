@@ -10,7 +10,7 @@ function Profile({ user }) {
         <div className="mb-4 flex items-center gap-4">
           <Avatar
             src={user?.avatar}
-            alt={user?.firstName}
+            alt={user?.first_name}
             className="w-20 h-20 border-2 border-gray-200"
           />
           <div className="flex flex-col">

@@ -56,14 +56,14 @@ export const signOutUser = async () => {
       },
     });
 
-    const data = await response.json();
-
     if (!response.ok) {
+      const data = await response.json();
       throw new Error(data.error || "Failed to sign out");
     }
 
     return true;
   } catch (error) {
+    console.error("Signout error:", error);
     throw error;
   }
 };

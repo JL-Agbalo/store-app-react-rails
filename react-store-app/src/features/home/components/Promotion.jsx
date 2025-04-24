@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Tag, Gift, Clock } from "../../../shared/components/icons/CommonIcons";
+import { Tag, Gift, Clock } from "../../../shared/components/Icons/CommonIcons";
 
 function Promotion() {
   return (

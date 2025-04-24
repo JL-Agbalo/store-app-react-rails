@@ -33,3 +33,11 @@ module RailsStoreApp
     config.api_only = true
   end
 end
+
+# TODO
+# CSRF Protection
+# Rate Limiting with Rack Attack
+# Session Store Configuration
+# Password Complexity in User Model
+# Email Confirmation Setup
+# CORS Configuration

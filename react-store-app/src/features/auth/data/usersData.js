@@ -1,8 +1,8 @@
 export const users = [
   {
     id: 1,
-    firstName: "Fish",
-    lastName: "Johnson",
+    first_name: "Fish",
+    last_name: "Johnson",
     email: "Fish@example.com",
     password_hash: "$2a$10$hashedpassword1",
     created_at: "2025-03-23T12:00:00Z",
@@ -10,8 +10,8 @@ export const users = [
   },
   {
     id: 2,
-    firstName: "Bob",
-    lastName: "Williams",
+    first_name: "Bob",
+    last_name: "Williams",
     email: "bob.williams@example.com",
     password_hash: "$2a$10$hashedpassword2",
     created_at: "2025-03-23T12:05:00Z",
@@ -19,8 +19,8 @@ export const users = [
   },
   {
     id: 3,
-    firstName: "Charlie",
-    lastName: "Davis",
+    first_name: "Charlie",
+    last_name: "Davis",
     email: "charlie.davis@example.com",
     password_hash: "$2a$10$hashedpassword3",
     created_at: "2025-03-23T12:10:00Z",
@@ -28,8 +28,8 @@ export const users = [
   },
   {
     id: 4,
-    firstName: "Diana",
-    lastName: "Miller",
+    first_name: "Diana",
+    last_name: "Miller",
     email: "diana.miller@example.com",
     password_hash: "$2a$10$hashedpassword4",
     created_at: "2025-03-23T12:15:00Z",
@@ -37,8 +37,8 @@ export const users = [
   },
   {
     id: 5,
-    firstName: "Emma",
-    lastName: "Wilson",
+    first_name: "Emma",
+    last_name: "Wilson",
     email: "emma.wilson@example.com",
     password_hash: "$2a$10$hashedpassword5",
     created_at: "2025-03-24T09:00:00Z",
@@ -46,8 +46,8 @@ export const users = [
   },
   {
     id: 6,
-    firstName: "Michael",
-    lastName: "Brown",
+    first_name: "Michael",
+    last_name: "Brown",
     email: "michael.brown@example.com",
     password_hash: "$2a$10$hashedpassword6",
     created_at: "2025-03-24T10:15:00Z",
@@ -57,8 +57,8 @@ export const users = [
 
 export const user1 = {
   id: 1,
-  firstName: "Fish",
-  lastName: "Johnson",
+  first_name: "Fish",
+  last_name: "Johnson",
   email: "Fish@example.com",
   password_hash: "$2a$10$hashedpassword1",
   created_at: "2025-03-23T12:00:00Z",

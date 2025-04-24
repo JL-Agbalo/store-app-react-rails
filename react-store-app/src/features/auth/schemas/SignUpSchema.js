@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const signUpSchema = z
   .object({
-    firstName: z
+    first_name: z
       .string()
       .min(2, { message: "First name must be at least 2 characters" })
       .max(50, { message: "First name must be less than 50 characters" })
@@ -10,7 +10,7 @@ export const signUpSchema = z
         message: "First name must contain only letters",
       }),
 
-    lastName: z
+    last_name: z
       .string()
       .min(2, { message: "Last name must be at least 2 characters" })
       .max(50, { message: "Last name must be less than 50 characters" })

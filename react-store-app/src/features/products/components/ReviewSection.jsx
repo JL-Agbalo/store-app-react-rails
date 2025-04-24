@@ -32,19 +32,19 @@ function ReviewSection({ productId }) {
                   {review.user.avatar_url ? (
                     <img
                       src={review.user.avatar_url}
-                      alt={`${review.user.firstName}'s avatar`}
+                      alt={`${review.user.first_name}'s avatar`}
                       className="w-full h-full rounded-full object-cover"
                     />
                   ) : (
                     <span className="text-base font-medium text-gray-600">
-                      {review.user.firstName[0]}
+                      {review.user.first_name[0]}
                     </span>
                   )}
                 </div>
                 <div className="flex-grow">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h4 className="font-medium text-gray-800">
-                      {review.user.firstName} {review.user.lastName}
+                      {review.user.first_name} {review.user.last_name}
                     </h4>
                     <span className="text-xs text-gray-400">
                       {new Date(review.created_at).toLocaleDateString()}

@@ -25,8 +25,8 @@ function ShippingInformation({ userId }) {
   return (
     <div className="space-y-6">
       <UserProfileCard
-        firstName={userDetails?.firstName}
-        lastName={userDetails?.lastName}
+        first_name={userDetails?.first_name}
+        last_name={userDetails?.last_name}
         email={userDetails?.email}
         image={userDetails?.avatar}
         className="w-16 h-16"
@@ -39,7 +39,7 @@ function ShippingInformation({ userId }) {
             First Name
           </span>
           <p className="w-full p-2 bg-gray-50 rounded-lg">
-            {userDetails?.firstName}
+            {userDetails?.first_name}
           </p>
         </div>
         <div>
@@ -47,7 +47,7 @@ function ShippingInformation({ userId }) {
             Last Name
           </span>
           <p className="w-full p-2 bg-gray-50 rounded-lg">
-            {userDetails?.lastName}
+            {userDetails?.last_name}
           </p>
         </div>
       </div>
