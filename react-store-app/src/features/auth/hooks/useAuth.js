@@ -1,27 +1,9 @@
 import { useState, useEffect } from "react";
-import { getCurrentUser, signOutUser } from "../../../services/v1/authService";
+import { signOutUser } from "../../../services/v1/authService";
 
 export const useAuth = () => {
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Load user data on mount
-  useEffect(() => {
-    const initializeAuth = async () => {
-      try {
-        const userData = await getCurrentUser();
-        if (userData) {
-          setUser(userData);
-        }
-      } catch (error) {
-        console.error("Failed to fetch user:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    initializeAuth();
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const logout = async () => {
     try {

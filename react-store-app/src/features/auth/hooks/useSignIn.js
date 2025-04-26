@@ -25,13 +25,12 @@ const useSignIn = () => {
       password: "",
     },
   });
-
   const onSubmit = async (data) => {
     try {
       setIsLoading(true);
-
+  
       const response = await signInUser(data.email, data.password);
-
+  
       if (response.user) {
         setUser(response.user);
         navigate("/");
@@ -39,7 +38,7 @@ const useSignIn = () => {
     } catch (error) {
       setError("root", {
         type: "manual",
-        message: "Sign in failed. Please check your email and password.",
+        message: error.message || "Sign in failed. Please check your email and password.",
       });
     } finally {
       setIsLoading(false);

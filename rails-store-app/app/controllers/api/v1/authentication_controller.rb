@@ -1,7 +1,6 @@
 module Api
   module V1
     class AuthenticationController < ApplicationController
-      
       def signin
         user = User.find_by(email: params[:email])
         
@@ -35,6 +34,7 @@ module Api
             
             if user
               # Issue new access token
+
               set_access_token(user)
               
               # Return success

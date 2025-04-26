@@ -6,5 +6,6 @@ export const ENDPOINTS = {
     SIGNUP: `${API_BASE_URL}/signup`,
     SIGNOUT: `${API_BASE_URL}/signout`,
     ME: `${API_BASE_URL}/me`,
+    REFRESH: `${API_BASE_URL}/refresh`,
   },
 };

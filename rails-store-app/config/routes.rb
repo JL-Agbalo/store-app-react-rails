@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      # Auth routes
+      # Add refresh token route
       post '/refresh', to: 'authentication#refresh'
+      
+      # Existing routes
+      get '/me', to: 'users#me'
       post '/signup', to: 'users#create'
       post '/signin', to: 'authentication#signin'
       delete '/signout', to: 'authentication#signout'
-      
-      # User routes
-      get '/me', to: 'users#me'
-      
-      # Debug routes
-      get '/debug_cookies', to: 'authentication#debug_cookies'
     end
   end
 end
