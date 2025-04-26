@@ -1,59 +1,40 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      skip_before_action :authenticate_request, only: [:create]
-
+      before_action :authenticate_user!, only: [:me]
+      
       def create
         user = User.new(user_params)
         
         if user.save
-          token = JwtService.encode(user_id: user.id)
+          # Automatically sign in after signup
+          set_access_token(user)
+          set_refresh_token(user)
           
-          cookies[:jwt] = {
-            value: token,
-            httponly: true,
-            secure: Rails.env.production?,
-            same_site: :strict,
-            expires: Time.now + JwtService::EXPIRATION_TIME
-          }
-      
-          render json: {
-            status: 'success',
-            message: 'User created successfully',
-            user: {
-              id: user.id,
-              email: user.email,
-              first_name: user.first_name,
-              last_name: user.last_name
-            }
+          render json: { 
+            user: user.as_json(except: [:password_digest, :created_at, :updated_at]),
+            message: 'User created successfully' 
           }, status: :created
         else
-          render json: {
-            status: 'error',
-            errors: user.errors.full_messages
-          }, status: :unprocessable_entity
+          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
       end
       
-
-			def me
-				render json: {
-					status: 'success',
-					user: {
-						id: current_user.id,
-						email: current_user.email,
-						first_name: current_user.first_name,
-						last_name: current_user.last_name
-					}
-				}
-			end
-
+      def me
+        puts "Debug: Cookie present: #{cookies.signed[:jwt].present?}"
+        puts "Debug: Current user: #{current_user.inspect}"
+        if current_user
+          render json: current_user.as_json(except: [:password_digest, :created_at, :updated_at]), status: :ok
+        else
+          render json: { error: 'User not found' }, status: :not_found
+        end
+      end
+      
       private
       
       def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
       end
-
     end
   end
 end

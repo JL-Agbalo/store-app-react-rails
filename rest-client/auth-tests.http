@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:3001/api/v1
+
+### Signup
+POST {{baseUrl}}/signup
+Content-Type: application/json
+
+{
+  "user": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "fish22@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  }
+}
+
+### Signin
+POST {{baseUrl}}/signin
+Content-Type: application/json
+
+{
+  "email": "fish22@example.com",
+  "password": "password123"
+}
+
+### Get current user
+GET {{baseUrl}}/me
+Content-Type: application/json
+
+### Refresh token
+POST {{baseUrl}}/refresh
+Content-Type: application/json
+
+### Signout
+DELETE {{baseUrl}}/signout
+Content-Type: application/json
+
+### Debug Cookies
+GET {{baseUrl}}/debug_cookies
+Content-Type: application/json
