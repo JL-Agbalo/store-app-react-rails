@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :profile, dependent: :destroy
   has_secure_password
 
   validates :first_name, presence: true, length: { maximum: 128 }
@@ -10,9 +11,15 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
 
   before_save :downcase_email
+  after_create :create_profile
 
   private
+
   def downcase_email
     self.email = email.downcase
+  end
+
+  def create_profile
+    Profile.create(user: self)
   end
 end

@@ -6,19 +6,19 @@ class ApplicationController < ActionController::API
   def current_user
     @current_user ||= begin
       token = cookies.signed[:jwt]
-      puts "Debug: Token found: #{token ? 'Yes' : 'No'}"
+      # puts "Debug: Token found: #{token ? 'Yes' : 'No'}"
       
       if token
         begin
           payload = JwtService.decode(token)
-          puts "Debug: Payload decoded: #{payload.inspect}"
+          # puts "Debug: Payload decoded: #{payload.inspect}"
           
           if payload
             user = User.find_by(id: payload[:user_id])
-            puts "Debug: User found: #{user ? 'Yes (ID: ' + user.id.to_s + ')' : 'No'}"
+            # puts "Debug: User found: #{user ? 'Yes (ID: ' + user.id.to_s + ')' : 'No'}"
             user
           else
-            puts "Debug: JWT decode returned nil"
+            # puts "Debug: JWT decode returned nil"
             nil
           end
         rescue => e

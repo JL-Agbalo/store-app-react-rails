@@ -21,8 +21,8 @@ module Api
       end
       
       def me
-        puts "Debug: Cookie present: #{cookies.signed[:jwt].present?}"
-        puts "Debug: Current user: #{current_user.inspect}"
+        # puts "Debug: Cookie present: #{cookies.signed[:jwt].present?}"
+        # puts "Debug: Current user: #{current_user.inspect}"
         if current_user
           render json: current_user.as_json(except: [:password_digest, :created_at, :updated_at]), status: :ok
         else

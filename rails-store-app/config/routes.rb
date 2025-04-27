@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       post '/signup', to: 'users#create'
       post '/signin', to: 'authentication#signin'
       delete '/signout', to: 'authentication#signout'
+
+      # User Profile
+      resource :profile, only: [:show, :create,:update]
     end
   end
 end

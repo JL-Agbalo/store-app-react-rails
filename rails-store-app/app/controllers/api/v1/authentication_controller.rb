@@ -2,8 +2,7 @@ module Api
   module V1
     class AuthenticationController < ApplicationController
       def signin
-        user = User.find_by(email: params[:email])
-        
+        user = User.find_by(email: params[:email].downcase)        
         if user&.authenticate(params[:password])
           # Set tokens
           set_access_token(user)
