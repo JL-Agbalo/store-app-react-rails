@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Avatar from "../../../../shared/components/Avatar";
 import { userNavLinks } from "../../config/navigation";
 import { Logout } from "../../../../shared/components/Icons/NavigationIcons";
-import { useAuth } from "../../../auth/hooks/useAuth";
+import { useAuth } from "../../../../contexts/auth/useAuth";
 
 function UserMenu({ currentUser, setIsCartOpen }) {
   const { logout } = useAuth();
@@ -12,15 +12,13 @@ function UserMenu({ currentUser, setIsCartOpen }) {
 
   const handleLogout = async () => {
     try {
-      const success = await logout();
-      if (success) {
-        setIsDropdownOpen(false);
-        navigate("/signin");
-      }
+      await logout();
+      setIsDropdownOpen(false);
+      navigate("/signin");
     } catch (error) {
       console.error("Logout failed:", error);
     }
-  };
+  }
 
   return (
     <div className="relative">

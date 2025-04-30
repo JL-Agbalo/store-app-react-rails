@@ -5,15 +5,17 @@ import UserMenu from "./UserMenu";
 import MobileMenu from "./MobileMenu";
 import { mainNavLinks } from "../../config/navigation";
 import { AUTH_ROUTES } from "../../../../routes/routes";
-import { useAuth } from "../../../auth/hooks/useAuth";
+import { useAuth } from "../../../../contexts/auth/useAuth";
 
 const Cart = lazy(() => import("../../../cart/components/Cart"));
 
 function Navbar() {
-  const { user, isAuthenticated, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  console.log("user", user);
+  const { user, isAuthenticated, logout } = useAuth();
+
+  console.log("Mav UserData: ", user);
+
   return (
     <>
       <nav className="bg-white text-black py-3 sticky top-0 shadow-md z-50">
@@ -56,7 +58,6 @@ function Navbar() {
                 <div className="flex items-center">
                   <UserMenu
                     currentUser={user}
-                    onLogout={logout}
                     setIsCartOpen={setIsCartOpen}
                   />
                 </div>
@@ -85,7 +86,6 @@ function Navbar() {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
         isAuthenticated={isAuthenticated}
-        onLogout={logout}
         setIsCartOpen={setIsCartOpen}
         currentUser={user}
       />

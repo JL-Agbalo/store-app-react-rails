@@ -3,15 +3,12 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "../schemas/SignInSchema";
-import { useAuth } from "./useAuth";
-import { signInUser } from "../../../services/v1/authService";
+import { useAuth } from "../../../contexts/auth/useAuth";
 
 const useSignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
-
-  const { setUser } = useAuth();
-
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const {
     register,
@@ -25,16 +22,14 @@ const useSignIn = () => {
       password: "",
     },
   });
+  
   const onSubmit = async (data) => {
     try {
       setIsLoading(true);
-  
-      const response = await signInUser(data.email, data.password);
-  
-      if (response.user) {
-        setUser(response.user);
-        navigate("/");
-      }
+      
+      await login(data.email, data.password);
+      navigate("/");
+      
     } catch (error) {
       setError("root", {
         type: "manual",

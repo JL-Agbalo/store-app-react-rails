@@ -7,7 +7,7 @@ import {
 import { mainNavLinks, userNavLinks } from "../../config/navigation";
 import UserProfileCard from "../../../../shared/components/UserProfileCard";
 import { AUTH_ROUTES } from "../../../../routes/routes";
-import { useAuth } from "../../../auth/hooks/useAuth";
+import { signOutUser } from "../../../../services/v1/authService";
 
 function MobileMenu({
   isOpen,
@@ -17,13 +17,19 @@ function MobileMenu({
   setIsCartOpen,
   currentUser,
 }) {
-  const { logout } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
-    onClose();
-    navigate("/signin");
+  const handleLogout = async () => {
+    try {
+      const response = await signOutUser();
+      if (response.success) {
+        setIsAuthenticated(false);
+        onClose();
+        navigate("/signin");
+      }
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
 
   if (!isOpen) return null;

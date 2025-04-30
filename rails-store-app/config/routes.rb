@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       delete '/signout', to: 'authentication#signout'
 
       # User Profile
-      resource :profile, only: [:show, :create,:update]
+      resource :profile, only: [:show, :create, :update]
     end
   end
 end

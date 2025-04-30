@@ -1,9 +1,13 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import { useAuth } from "../../../auth/hooks/useAuth";
+import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from "../../../../contexts/auth/useAuth";
 
 const AuthLayout = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   if (isAuthenticated) {
     return <Navigate to="/" replace />;
