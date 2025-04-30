@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(true);
       try {
         const response = await getCurrentUser();
+        console.log("response", response)
         if (response && response.user) {
           setUser(response.user);
         } else {
@@ -35,12 +36,14 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
-    
     try {
       const response = await signInUser(email, password);
       if (response.user) {
         setUser(response.user);
         return response.user;
+      } else {
+        setError("Invalid response format from server");
+        return null;
       }
     } catch (err) {
       setError(err.message);
@@ -54,12 +57,14 @@ export const AuthProvider = ({ children }) => {
   const signup = async (userData) => {
     setIsLoading(true);
     setError(null);
-    
     try {
       const response = await signUpUser(userData);
-      if (response) {
-        setUser(response);
-        return response;
+      if (response.user) {
+        setUser(response.user);
+        return response.user;
+      } else {
+        setError("Invalid response format from server");
+        return null;
       }
     } catch (err) {
       setError(err.message);
@@ -91,16 +96,19 @@ export const AuthProvider = ({ children }) => {
   const refreshUser = async () => {
     try {
       const response = await getCurrentUser();
-      if (response && response.user) {
+      if (response.user) {
         setUser(response.user);
+        setError(null);
       } else {
         setUser(null);
+        setError("User not found");
       }
     } catch (err) {
       setUser(null);
+      setError(err.message);
     }
   };
-  
+    
   // Value to be provided by the context
   const value = {
     user,

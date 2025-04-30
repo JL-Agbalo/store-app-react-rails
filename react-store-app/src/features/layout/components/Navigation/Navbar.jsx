@@ -15,6 +15,7 @@ function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
 
   console.log("Mav UserData: ", user);
+  console.log("Mav Auth: ", isAuthenticated);
 
   return (
     <>

@@ -19,7 +19,7 @@ export const signUpUser = async (data) => {
       throw new Error(result.errors ? result.errors.join(", ") : "Signup failed");
     }
 
-    return result.user;
+    return result;
   } catch (error) {
     throw error;
   }
@@ -48,19 +48,21 @@ export const signInUser = async (email, password) => {
 };
 
 export const getCurrentUser = async () => {
+  console.log("Fetching current user...");
   try {
     const response = await fetchWithRefresh(ENDPOINTS.AUTH.ME, {
       headers: { "Content-Type": "application/json" },
     });
 
     const data = await response.json();
-
+    console.log("Current user data:", data);
     if (!response.ok) {
       throw new Error("Failed to get user");
     }
 
-    return await response.json();
+    return data; 
   } catch (error) {
+    console.error("Get current user error:", error);
     return null;
   }
 };

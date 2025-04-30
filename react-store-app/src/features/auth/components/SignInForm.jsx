@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
 import useSignIn from "../hooks/useSignIn";
 import SocialMediaAuth from "./SocialMediaAuth";
 import {
@@ -10,10 +10,13 @@ import {
   Alert,
   Check,
 } from "../../../shared/components/Icons/AuthIcons";
+import { AuthContext } from "../../../contexts/auth/AuthContext";
 
 const SignInForm = () => {
   const { register, handleSubmit, errors, isLoading } = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
+  const { error: contextError } = useContext(AuthContext);
+  const location = useLocation();
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
@@ -28,11 +31,11 @@ const SignInForm = () => {
       )}
 
       {/* Form-level error display */}
-      {errors.root && (
+      {(errors.root || contextError) && (
         <div className="p-3 mb-4 text-sm text-red-500 rounded-lg bg-red-50 border border-red-100">
           <div className="flex items-center">
             <Alert className="w-4 h-4 mr-2 fill-current" />
-            {errors.root.message}
+            {errors.root?.message || contextError}
           </div>
         </div>
       )}
